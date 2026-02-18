@@ -188,7 +188,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-32 bg-cupcake-bg">
+      <section className="py-32 bg-lemonade-bg">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <SectionTitle colorClass="text-member2">Nos Valeurs</SectionTitle>
@@ -205,7 +205,7 @@ const Home = () => {
                 className="relative group perspective-[1000px]"
               >
                 <div 
-                  className="post-it bg-white p-8 pt-10 rounded-sm shadow-xl transition-transform duration-300 hover:scale-115"
+                  className="post-it bg-white p-8 pt-10 rounded-sm shadow-xl transition-transform duration-300 hover:scale-115 "
                   style={{ 
                     transform: `rotate(${idx % 2 === 0 ? '-2deg' : '2deg'})`,
                     borderTop: `6px solid ${memberColors[val.color]}` 
@@ -283,14 +283,14 @@ const Home = () => {
       </section>
 
       {/* Section 4: FAQ */}
-      <section className="py-32 bg-cupcake-bg">
+      <section className="py-32 bg-lemonade-bg">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-12">
               <SectionTitle colorClass="text-member4">Questions Fréquentes</SectionTitle>
               <div className="space-y-4">
                 {faqs.map((faq, idx) => (
-                  <div key={idx} className="bg-cupcake-bg rounded-3xl border border-slate-200 overflow-hidden transition-all shadow-sm">
+                  <div key={idx} className="bg-lemonade-bg rounded-3xl border border-slate-200 overflow-hidden transition-all shadow-sm">
                     <button 
                       onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
                       className="w-full p-8 flex justify-between items-center font-bold text-xl text-left select-none group"

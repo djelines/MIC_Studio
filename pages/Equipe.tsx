@@ -46,7 +46,7 @@ const TeamCardInteraction = ({ member, index }: { member: Member, index: number 
 
       {/* Image Side (Revealed on hover) */}
       <div className={`w-full md:w-[40%] h-[300px] md:h-full relative overflow-hidden bg-slate-50 transition-all duration-500 ${isImageRight ? 'border-l' : 'border-r'} border-slate-50`}>
-        <div className="absolute inset-0 flex items-center justify-center bg-cupcake-bg z-0 group-hover:opacity-0 transition-opacity duration-700">
+        <div className="absolute inset-0 flex items-center justify-center bg-lemonade-bg z-0 group-hover:opacity-0 transition-opacity duration-700">
            <div className="text-center opacity-20">
               <div className="w-24 h-24 rounded-full border-4 border-dashed border-slate-300 flex items-center justify-center mx-auto mb-4 bg-white/50">
                  <User size={40} className="text-slate-400" />
@@ -81,7 +81,7 @@ const Equipe = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="bg-cupcake-bg"
+      className="bg-lemonade-bg"
     >
       <Hero 
         title="L’Équipe MIC"

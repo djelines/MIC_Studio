@@ -54,7 +54,7 @@ export default function App() {
     <Router>
       <ScrollToTop />
       <ScrollProgress />
-      <div className="min-h-screen flex flex-col relative overflow-x-hidden bg-cupcake-bg transition-colors duration-500">
+      <div className="min-h-screen flex flex-col relative overflow-x-hidden bg-lemonade-bg transition-colors duration-500">
         <Navbar />
         <main className="flex-grow pt-20">
           <AnimatedRoutes />

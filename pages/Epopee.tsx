@@ -12,7 +12,7 @@ const Epopee = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="bg-cupcake-bg"
+      className="bg-lemonade-bg"
     >
       <div className="relative h-[85vh] w-full flex items-center justify-center overflow-hidden">
           <BubbleBackground/>

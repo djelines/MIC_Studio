@@ -12,7 +12,7 @@ export const StatCard = ({ stat, idx }) => {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
       transition={{ delay: idx * 0.1, duration: 0.5 }}
-      className="bg-white rounded-[32px] shadow-sm p-8 card-shadow flex flex-col items-center text-center border border-gray-100/50"
+      className="bg-lemonade-bg rounded-[32px] shadow-sm p-8 card-shadow flex flex-col items-center text-center border border-gray-100/50"
     >
       <div className="w-14 h-14 rounded-full border border-gray-100 flex items-center justify-center mb-6">
         {stat.icon}

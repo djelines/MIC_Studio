@@ -29,7 +29,7 @@ const Hero: React.FC<HeroProps> = ({ title, subtitle, image, primaryCta, seconda
             className="w-full h-full object-cover"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-cupcake-bg dark:to-sunset-bg transition-colors duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-lemonade-bg dark:to-sunset-bg transition-colors duration-500" />
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">

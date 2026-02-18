@@ -15,10 +15,10 @@
 
   --color-background-color: #f8f9fa;
 
-  --color-cupcake-bg: var(--cupcake-bg);
-  --color-cupcake-base200: var(--cupcake-200);
-  --color-cupcake-base300: var(--cupcake-300);
-  --color-cupcake-accent: #fce7f3;
+  --color-lemonade-bg: var(--lemonade-bg);
+  --color-lemonade-base200: var(--lemonade-200);
+  --color-lemonade-base300: var(--lemonade-300);
+  --color-lemonade-accent: #e0f2fe;
 
   @keyframes float {
     0%, 100% { transform: translateY(0); }
@@ -44,9 +44,9 @@
 }
 
 :root {
-    --cupcake-bg: oklch(97.788% 0.004 56.375);
-    --cupcake-200: oklch(93.982% 0.007 61.449);
-    --cupcake-300: oklch(91.586% 0.006 53.44);
+    --lemonade-bg: oklch(98.5% 0.01 230);
+    --lemonade-200: oklch(96% 0.02 230);
+    --lemonade-300: oklch(93% 0.03 230);
     --radius: 0.625rem;
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
@@ -82,7 +82,7 @@
   }
 
 body {
-background-color: var(--cupcake-bg);
+background-color: var(--lemonade-bg);
 color: #1e293b;
 }
 

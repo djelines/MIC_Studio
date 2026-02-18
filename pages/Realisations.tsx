@@ -11,7 +11,7 @@ const Realisations = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="bg-cupcake-bg"
+      className="bg-lemonade-bg"
     >
       <Hero 
         title="Nos Réalisations"
