@@ -28,14 +28,14 @@ const Navbar = () => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'py-2' : 'py-3'}`}
+      className={`fixed top-0 left-0 right-0 z-9999990 transition-all duration-300 ${scrolled ? 'py-2' : 'py-3'}`}
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className={`relative flex items-center justify-between rounded-full px-6 py-2 transition-all duration-500 ${scrolled ? 'glass shadow-xl' : ''}`}>
           
           <Link to="/" className="flex items-center gap-3 group">
             <LogoMIC className="w-10 h-10 transition-transform group-hover:scale-110" />
-            <span className="text-xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-member1 via-member3 to-member2">
+            <span className="text-xl font-extrabold tracking-tighter text-black">
               MIC STUDIO
             </span>
           </Link>

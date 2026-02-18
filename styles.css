@@ -13,6 +13,8 @@
   --color-member3: #4992f1;
   --color-member4: #233147;
 
+  --color-background-color: #f8f9fa;
+
   --color-cupcake-bg: var(--cupcake-bg);
   --color-cupcake-base200: var(--cupcake-200);
   --color-cupcake-base300: var(--cupcake-300);

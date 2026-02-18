@@ -3,8 +3,11 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Hero from '../components/Hero';
 import { VALUES, PROJECTS } from '../constants';
-import { Plus, ArrowRight, ChevronRight, ChevronLeft, BarChart3, Users, Code, Trophy } from 'lucide-react';
+import { Plus, ArrowRight, ChevronRight, ChevronLeft, BarChart3, Users, Code, Trophy, Smile, Package, Star, Award, Crown } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Cobe } from '@/components/ui/cobe-globe';
+import { CountingNumber } from '@/components/animate-ui/primitives/texts/counting-number';
+import { StatCard } from '@/components/StatsCard';
 
 const SectionTitle = ({ children, colorClass }: { children: React.ReactNode, colorClass: string }) => (
   <h2 className="text-4xl md:text-6xl font-black relative inline-block">
@@ -26,10 +29,65 @@ const Home = () => {
   ];
 
   const statistics = [
-    { label: "Projets livrés", value: "24", icon: <BarChart3 className="w-8 h-8" /> },
-    { label: "Clients satisfaits", value: "100%", icon: <Users className="w-8 h-8" /> },
-    { label: "Lignes de code", value: "250k+", icon: <Code className="w-8 h-8" /> },
-    { label: "Prix d'innovation", value: "3", icon: <Trophy className="w-8 h-8" /> }
+    { label: "Projets livrés", value: "24", afterValue: "", icon: <BarChart3 className="w-8 h-8" />, 
+      illustration: <div className="flex items-end justify-center h-10 gap-1.5 mt-5">
+      <div className="w-6 h-4 bg-gray-100 rounded border border-gray-200 flex items-center justify-center"><Package size={12} className='text-gray-400'/></div>
+      <div className="w-6 h-7 bg-gray-200 rounded border border-gray-300 flex items-center justify-center"><Package size={12} className='text-gray-500'/></div>
+      <div className="w-6 h-10 bg-gray-900 rounded border border-gray-900 flex items-center justify-center"><Package size={12} className='text-white/80'/></div>
+  </div>
+     },
+    { label: "Clients satisfaits", value: "100", afterValue: "%", icon: <Smile className="w-8 h-8" />,
+      illustration: <div className="flex items-center justify-center gap-1 h-8 mt-5">
+        <Star size={24} className='text-gray-900 '/>
+        <Star size={24} className='text-gray-900 '/>
+        <Star size={24} className='text-gray-900 '/>
+        <Star size={24} className='text-gray-900 '/>
+        <Star size={24} className='text-gray-900 '/>
+  </div>
+     },
+    { label: "Lignes de code", value: "250", afterValue: "k+", icon: <Code className="w-8 h-8" />,
+      illustration: <div className="flex flex-col items-center justify-center gap-1.5 h-10 w-full px-12 mt-5">
+      <div className="flex items-center gap-2 w-full">
+          <div className="h-1.5 bg-gray-900 rounded-full w-2/3"></div>
+          <div className="h-1.5 bg-gray-200 rounded-full w-1/3"></div>
+      </div>
+      <div className="flex items-center gap-2 w-full">
+          <div className="h-1.5 bg-gray-400 rounded-full w-1/4"></div>
+          <div className="h-1.5 bg-gray-900 rounded-full w-3/4"></div>
+      </div>
+      <div className="flex items-center gap-2 w-full">
+          <div className="h-1.5 bg-gray-200 rounded-full w-1/2"></div>
+          <div className="h-1.5 bg-gray-400 rounded-full w-1/2"></div>
+      </div>
+  </div>
+     },
+    { label: "Prix d'innovation", value: "3", afterValue: "", icon: <Trophy className="w-8 h-8" />,
+      illustration: <div className="relative h-12 w-full flex items-center justify-center overflow-visible mt-5">
+<div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
+  <div className="w-20 h-20 border border-gray-900 rounded-full absolute border-dashed animate-spin-slow"></div>
+</div>
+
+<div className="flex items-center justify-center relative">
+  <div className="absolute -translate-x-8 -translate-y-2 w-6 h-6 bg-white border border-gray-200 rounded-full flex items-center justify-center shadow-sm -rotate-12 transition-transform hover:scale-110">
+    <Award size={10} className='text-gray-500'/>
+  </div>
+  
+  <div className="w-10 h-10 bg-gray-900 rounded-full border-2 border-white flex items-center justify-center shadow-lg z-10 scale-110 transform transition-transform hover:scale-125 cursor-default">
+    <Crown size={20} className='text-white'/>
+  </div>
+  
+  <div className="absolute translate-x-8 -translate-y-2 w-6 h-6 bg-white border border-gray-200 rounded-full flex items-center justify-center shadow-sm rotate-12 transition-transform hover:scale-110">
+    <Star size={10} className='text-gray-500'/>
+  </div>
+</div>
+
+<div className="absolute -top-1 right-1/3 w-1 h-1 bg-gray-400 rounded-full animate-ping"></div>
+<div 
+  className="absolute top-4 left-1/4 w-1 h-1 bg-gray-300 rounded-full animate-pulse" 
+  style={{ animationDelay: '0.5s' }}
+></div>
+  </div>
+     }
   ];
 
   const iconColorMap: Record<string, string> = {
@@ -53,16 +111,60 @@ const Home = () => {
       exit={{ opacity: 0 }}
       className="space-y-0"
     >
-      <Hero 
-        title="Nous développons des projets concrets et innovants"
-        subtitle="MIC, c’est Matéis, Mathys, Inès et Clément. Ensemble, nous transformons des idées en solutions concrètes et sociales."
-        image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
-        primaryCta={{ text: 'Découvrir nos projets', link: '/realisations' }}
-        secondaryCta={{ text: 'Rencontrer l’équipe', link: '/equipe' }}
-      />
+    
+    <section className="relative h-[92vh] w-full flex items-center justify-center overflow-hidden flex-col">
+  <Cobe 
+    className='!absolute inset-0 opacity-60'
+  />
 
-      {/* Section 1: Stats */}
-      <section className="py-24 bg-white ">
+  <div className='w-full h-full flex mt-40'>
+    
+    <div className="relative z-10 max-w-5xl mx-auto px-6 -mt-10 text-center pointer-events-auto">
+      <motion.h1
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-4xl md:text-7xl font-extrabold text-black/90 mb-6 leading-tight drop-shadow-sm"
+      >
+        Nous développons des projets concrets et innovants
+      </motion.h1>      
+      
+      <motion.p
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-center text-lg md:text-2xl text-black/70 mb-10 max-w-4xl mx-auto leading-relaxed"
+      >
+          MIC, c’est Matéis, Mathys, Inès et Clément. Ensemble, nous transformons des idées en solutions concrètes et sociales.
+      </motion.p>
+
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+      >
+          <Link 
+            to=""
+            className="px-8 py-4 bg-[#233147] hover:bg-[#233147]/90 text-white 
+            font-bold rounded-full transition-all flex items-center gap-2 group shadow-lg hover:shadow-xl"
+          >
+            Découvrir nos projets
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
+
+          <Link 
+            to=""
+            className="px-8 py-4 bg-gray-100 hover:bg-gray-200 text-gray-900 font-bold rounded-full transition-all hover:scale-105 border border-gray-200"
+          >
+            Rencontrer l'équipe
+          </Link>
+      </motion.div>
+    </div>
+  </div>
+</section>
+
+      <section className="py-24 bg-white/70">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center mb-20">
             <motion.div
@@ -80,26 +182,12 @@ const Home = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {statistics.map((stat, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="p-8 rounded-[2.5rem] bg-cupcake-bg border border-slate-100 text-center shadow-sm group hover:scale-105 transition-all"
-              >
-                <div className="flex justify-center mb-4 text-member1 group-hover:scale-110 transition-transform">
-                  {stat.icon}
-                </div>
-                <div className="text-4xl font-black mb-2">{stat.value}</div>
-                <div className="text-sm font-bold uppercase tracking-widest opacity-60">{stat.label}</div>
-              </motion.div>
+              <StatCard stat={stat} idx={idx} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Section 2: Values (Post-it style) */}
       <section className="py-32 bg-cupcake-bg">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
@@ -144,7 +232,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Section 3: Projects */}
       <section className="py-32 bg-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
