@@ -343,24 +343,38 @@ const Home = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-32 px-6 bg-white">
-        <motion.div
-          whileInView={{ scale: [0.95, 1] }}
-          className="max-w-6xl mx-auto rounded-[4rem] p-12 md:p-24 text-center border border-slate-200 relative overflow-hidden shadow-2xl bg-white"
-        >
-          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-member1 via-member3 to-member2" />
-          <h2 className="text-4xl md:text-7xl font-black mb-10 leading-tight tracking-tight text-slate-800">Prêt à transformer <br/>votre idée en réalité ?</h2>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-12 py-6 bg-member1 text-white font-black text-xl rounded-full shadow-xl transition-all"
-            >
-              <a href="mailto:contact@mic-studio.fr" className="group-hover:text-member1 transition-colors">Contactez-nous</a>
-            </motion.button>
-            <Link to="/equipe" className="text-xl font-bold hover:underline text-slate-700">Rencontrer l'équipe</Link>
-          </div>
-        </motion.div>
+      <section className="py-24 px-6 bg-white">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
+          >
+            <h2 className="text-3xl md:text-5xl font-black leading-tight text-slate-900">
+              On discute de votre projet ?
+            </h2>
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
+              Que ce soit pour un prototype, une refonte ou une idée à concrétiser, on aime les défis qui ont du sens.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
+              <a 
+                href="mailto:contact@mic-studio.fr"
+                className="inline-flex items-center justify-center px-8 py-4 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-lg transition-colors group"
+              >
+                Envoyer un message
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <Link 
+                to="/equipe" 
+                className="inline-flex items-center justify-center px-8 py-4 bg-white hover:bg-slate-50 text-slate-900 font-semibold rounded-lg border border-slate-200 transition-colors"
+              >
+                L'équipe
+              </Link>
+            </div>
+          </motion.div>
+        </div>
       </section>
     </motion.div>
   );
