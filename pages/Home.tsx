@@ -3,13 +3,17 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Hero from '../components/Hero';
 import { VALUES, PROJECTS } from '../constants';
-import { Plus, ArrowRight, ChevronRight, ChevronLeft, BarChart3, Users, Code, Trophy, Smile, Package, Star, Award, Crown } from 'lucide-react';
+import { Plus, ArrowRight, ChevronRight, ChevronLeft, Search, Layers, Code2, Rocket } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Cobe } from '@/components/ui/cobe-globe';
-import { CountingNumber } from '@/components/animate-ui/primitives/texts/counting-number';
-import { StatCard } from '@/components/StatsCard';
+import { DevelopmentStepCard } from '@/components/DevelopmentStepCard';
+import { RequirementsMap } from '@/components/ui/svg/RequirementsSvg';
+import { SystemArchitecture } from '@/components/ui/svg/SystemArchitectureSvg';
+import { CodeImplementation } from '@/components/ui/svg/CodeImplementationSvg';
+import { DeploymentStatus } from '@/components/ui/svg/DeploymentSvg';
+import { ProjectCarousel } from '@/components/ui/ProjectsCarousel';
 
-const SectionTitle = ({ children, colorClass }: { children: React.ReactNode, colorClass: string }) => (
+export const SectionTitle = ({ children, colorClass }: { children: React.ReactNode, colorClass: string }) => (
   <h2 className="text-4xl md:text-6xl font-black relative inline-block">
     <span className={`highlight ${colorClass}`}>{children}</span>
   </h2>
@@ -28,66 +32,35 @@ const Home = () => {
     { q: "Êtes-vous disponibles pour de nouveaux projets ?", a: "Oui, nous sommes toujours à la recherche de défis innovants, particulièrement ceux à impact social. Parlons-en !" }
   ];
 
-  const statistics = [
-    { label: "Projets livrés", value: "24", afterValue: "", icon: <BarChart3 className="w-8 h-8" />, 
-      illustration: <div className="flex items-end justify-center h-10 gap-1.5 mt-5">
-      <div className="w-6 h-4 bg-gray-100 rounded border border-gray-200 flex items-center justify-center"><Package size={12} className='text-gray-400'/></div>
-      <div className="w-6 h-7 bg-gray-200 rounded border border-gray-300 flex items-center justify-center"><Package size={12} className='text-gray-500'/></div>
-      <div className="w-6 h-10 bg-gray-900 rounded border border-gray-900 flex items-center justify-center"><Package size={12} className='text-white/80'/></div>
-  </div>
-     },
-    { label: "Clients satisfaits", value: "100", afterValue: "%", icon: <Smile className="w-8 h-8" />,
-      illustration: <div className="flex items-center justify-center gap-1 h-8 mt-5">
-        <Star size={24} className='text-gray-900 '/>
-        <Star size={24} className='text-gray-900 '/>
-        <Star size={24} className='text-gray-900 '/>
-        <Star size={24} className='text-gray-900 '/>
-        <Star size={24} className='text-gray-900 '/>
-  </div>
-     },
-    { label: "Lignes de code", value: "250", afterValue: "k+", icon: <Code className="w-8 h-8" />,
-      illustration: <div className="flex flex-col items-center justify-center gap-1.5 h-10 w-full px-12 mt-5">
-      <div className="flex items-center gap-2 w-full">
-          <div className="h-1.5 bg-gray-900 rounded-full w-2/3"></div>
-          <div className="h-1.5 bg-gray-200 rounded-full w-1/3"></div>
-      </div>
-      <div className="flex items-center gap-2 w-full">
-          <div className="h-1.5 bg-gray-400 rounded-full w-1/4"></div>
-          <div className="h-1.5 bg-gray-900 rounded-full w-3/4"></div>
-      </div>
-      <div className="flex items-center gap-2 w-full">
-          <div className="h-1.5 bg-gray-200 rounded-full w-1/2"></div>
-          <div className="h-1.5 bg-gray-400 rounded-full w-1/2"></div>
-      </div>
-  </div>
-     },
-    { label: "Prix d'innovation", value: "3", afterValue: "", icon: <Trophy className="w-8 h-8" />,
-      illustration: <div className="relative h-12 w-full flex items-center justify-center overflow-visible mt-5">
-<div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
-  <div className="w-20 h-20 border border-gray-900 rounded-full absolute border-dashed animate-spin-slow"></div>
-</div>
-
-<div className="flex items-center justify-center relative">
-  <div className="absolute -translate-x-8 -translate-y-2 w-6 h-6 bg-white border border-gray-200 rounded-full flex items-center justify-center shadow-sm -rotate-12 transition-transform hover:scale-110">
-    <Award size={10} className='text-gray-500'/>
-  </div>
-  
-  <div className="w-10 h-10 bg-gray-900 rounded-full border-2 border-white flex items-center justify-center shadow-lg z-10 scale-110 transform transition-transform hover:scale-125 cursor-default">
-    <Crown size={20} className='text-white'/>
-  </div>
-  
-  <div className="absolute translate-x-8 -translate-y-2 w-6 h-6 bg-white border border-gray-200 rounded-full flex items-center justify-center shadow-sm rotate-12 transition-transform hover:scale-110">
-    <Star size={10} className='text-gray-500'/>
-  </div>
-</div>
-
-<div className="absolute -top-1 right-1/3 w-1 h-1 bg-gray-400 rounded-full animate-ping"></div>
-<div 
-  className="absolute top-4 left-1/4 w-1 h-1 bg-gray-300 rounded-full animate-pulse" 
-  style={{ animationDelay: '0.5s' }}
-></div>
-  </div>
-     }
+  const developmentSteps = [
+    {
+      title: "Exigence",
+      description: "Nous étudions en profondeur vos besoins, votre marché et.",
+      icon: Search,
+      color: "#746ac8",
+      svg: <RequirementsMap/>
+    },
+    {
+      title: "Architecture",
+      description: "Conception d'une architecture technique solide et scalable.",
+      icon: Layers,
+      color: "#49b4a7",
+      svg: <SystemArchitecture/>
+    },
+    {
+      title: "Développement",
+      description: "Implémentation rigoureuse avec des pratiques de code propres.",
+      icon: Code2,
+      color: "#4992f1",
+      svg: <CodeImplementation/>
+    },
+    {
+      title: "Déploiement",
+      description: "Déploiement sécurisé, monitoring continu et accompagnement.",
+      icon: Rocket,
+      color: "#233147",
+      svg: <DeploymentStatus/>
+    }
   ];
 
   const iconColorMap: Record<string, string> = {
@@ -164,7 +137,7 @@ const Home = () => {
   </div>
 </section>
 
-      <section className="py-24 bg-white/70">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center mb-20">
             <motion.div
@@ -173,16 +146,24 @@ const Home = () => {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <SectionTitle colorClass="text-member1">Une vision, quatre talents.</SectionTitle>
+              <SectionTitle colorClass="text-member1">Notre Processus de Développement</SectionTitle>
               <p className="text-xl text-slate-600 leading-relaxed mt-6">
-                Basés à Paris, nous mettons notre expertise au service de projets à fort impact social et technologique. MIC Studio n'est pas qu'une agence, c'est un laboratoire d'idées.
+                De l'analyse initiale à la mise en production, nous suivons une méthodologie rigoureuse pour transformer vos idées en solutions concrètes et performantes.
               </p>
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {statistics.map((stat, idx) => (
-              <StatCard stat={stat} idx={idx} />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {developmentSteps.map((step, idx) => (
+              <DevelopmentStepCard
+                key={step.title}
+                title={step.title}
+                description={step.description}
+                icon={step.icon}
+                color={step.color}
+                idx={idx}
+                svg={step.svg}
+              />
             ))}
           </div>
         </div>
@@ -233,53 +214,7 @@ const Home = () => {
       </section>
 
       <section className="py-32 bg-white overflow-hidden">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
-            <div className="space-y-4">
-              <SectionTitle colorClass="text-member3">Réalisations Récentes</SectionTitle>
-              <p className="text-slate-500 max-w-xl font-medium">
-                Un aperçu de nos derniers succès, alliant complexité technique et interface épurée.
-              </p>
-            </div>
-            <div className="flex gap-4">
-              <button onClick={prevProject} className="p-4 bg-white rounded-full hover:bg-member3 hover:text-white transition-all shadow-md border border-slate-100"><ChevronLeft /></button>
-              <button onClick={nextProject} className="p-4 bg-white rounded-full hover:bg-member3 hover:text-white transition-all shadow-md border border-slate-100"><ChevronRight /></button>
-            </div>
-          </div>
-
-          <div className="relative overflow-hidden rounded-[3rem] shadow-2xl bg-white border border-slate-100 h-[600px] md:h-[450px]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={projectIndex}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="absolute inset-0 flex flex-col md:flex-row h-full"
-              >
-                <div className="w-full md:w-1/2 h-48 md:h-full overflow-hidden">
-                  <img 
-                    src={PROJECTS[projectIndex].image} 
-                    alt={PROJECTS[projectIndex].title} 
-                    className="w-full h-full object-cover" 
-                  />
-                </div>
-                <div className="w-full md:w-1/2 p-10 md:p-16 flex flex-col justify-center">
-                  <h3 className="text-3xl md:text-5xl font-black mb-4 tracking-tight">{PROJECTS[projectIndex].title}</h3>
-                  <p className="text-slate-500 mb-8 text-lg leading-relaxed line-clamp-3">
-                    {PROJECTS[projectIndex].description}
-                  </p>
-                  <Link 
-                    to="/realisations" 
-                    className="inline-flex items-center gap-2 text-member3 font-bold text-xl hover:gap-4 transition-all"
-                  >
-                    Voir le projet <ArrowRight className="w-6 h-6" />
-                  </Link>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
+          <ProjectCarousel/>
       </section>
 
       {/* Section 4: FAQ */}
