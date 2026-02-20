@@ -10,7 +10,7 @@ export interface Project {
       label: string;
       value: string;
     }[];
-  }
+}
 
 export const PROJECTS: Project[] = [
   {

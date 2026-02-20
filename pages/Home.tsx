@@ -12,6 +12,7 @@ import { SystemArchitecture } from '@/components/ui/svg/SystemArchitectureSvg';
 import { CodeImplementation } from '@/components/ui/svg/CodeImplementationSvg';
 import { DeploymentStatus } from '@/components/ui/svg/DeploymentSvg';
 import { ProjectCarousel } from '@/components/ui/ProjectsCarousel';
+import WorldMap from '@/components/ui/world-map';
 
 export const SectionTitle = ({ children, colorClass }: { children: React.ReactNode, colorClass: string }) => (
   <h2 className="text-4xl md:text-6xl font-black relative inline-block">
@@ -22,9 +23,6 @@ export const SectionTitle = ({ children, colorClass }: { children: React.ReactNo
 const Home = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [projectIndex, setProjectIndex] = useState(0);
-
-  const nextProject = () => setProjectIndex((prev) => (prev + 1) % PROJECTS.length);
-  const prevProject = () => setProjectIndex((prev) => (prev - 1 + PROJECTS.length) % PROJECTS.length);
 
   const faqs = [
     { q: "Pourquoi choisir MIC Studio ?", a: "Notre force réside dans la complémentarité de nos profils et notre engagement total sur chaque projet. Nous ne livrons pas seulement du code, nous bâtissons des solutions durables." },
@@ -85,57 +83,88 @@ const Home = () => {
       className="space-y-0"
     >
     
-    <section className="relative h-[92vh] w-full flex items-center justify-center overflow-hidden flex-col">
-  <Cobe 
-    className='!absolute inset-0 opacity-60'
-  />
+    <section className="relative h-[92vh] w-full flex items-center justify-center overflow-hidden flex-col [box-shadow:0_50px_90px_-15px_rgba(0,0,0,0.5)]">
+    <WorldMap
+        dots={[
+          // Seattle -> Montréal
+          {
+            start: { lat: 47.6062, lng: -122.3321 }, // Seattle
+            end: { lat: 45.5017, lng: -73.5673 }, // Montréal
+          },
+          // Montréal -> Brasília
+          {
+            start: { lat: 45.5017, lng: -73.5673 }, // Montréal
+            end: { lat: -15.7975, lng: -47.8919 }, // Brasília
+          },
+          // Paris -> Helsinki
+          {
+            start: { lat: 48.8566, lng: 2.3522 }, // Paris
+            end: { lat: 60.1695, lng: 24.9354 }, // Helsinki
+          },
+          // Paris -> Qatar (Doha)
+          {
+            start: { lat: 48.8566, lng: 2.3522 }, // Paris
+            end: { lat: 25.2854, lng: 51.5310 }, // Qatar (Doha)
+          },
+          // Qatar (Doha) -> Moscou
+          {
+            start: { lat: 25.2854, lng: 51.5310 }, // Qatar (Doha)
+            end: { lat: 55.7558, lng: 37.6173 }, // Moscou
+          },
+          // Japon (Tokyo) -> Sydney
+          {
+            start: { lat: 35.6762, lng: 139.6503 }, // Japon (Tokyo)
+            end: { lat: -33.8688, lng: 151.2093 }, // Sydney
+          },
+        ]}
+      />
 
-  <div className='w-full h-full flex mt-40'>
-    
-    <div className="relative z-10 max-w-5xl mx-auto px-6 -mt-10 text-center pointer-events-auto">
-      <motion.h1
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="text-4xl md:text-7xl font-extrabold text-black/90 mb-6 leading-tight drop-shadow-sm"
-      >
-        Nous développons des projets concrets et innovants
-      </motion.h1>      
-      
-      <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-center text-lg md:text-2xl text-black/70 mb-10 max-w-4xl mx-auto leading-relaxed"
-      >
-          MIC, c’est Matéis, Mathys, Inès et Clément. Ensemble, nous transformons des idées en solutions concrètes et sociales.
-      </motion.p>
-
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-      >
-          <Link 
-            to=""
-            className="px-8 py-4 bg-[#233147] hover:bg-[#233147]/90 text-white 
-            font-bold rounded-full transition-all flex items-center gap-2 group shadow-lg hover:shadow-xl"
+      <div className='w-full h-full flex mt-50'>
+        
+        <div className="relative z-10 max-w-5xl mx-auto px-6 -mt-10 text-center pointer-events-auto">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-7xl font-extrabold text-white/90 mb-6 leading-tight drop-shadow-sm"
           >
-            Découvrir nos projets
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
-
-          <Link 
-            to=""
-            className="px-8 py-4 bg-gray-100 hover:bg-gray-200 text-gray-900 font-bold rounded-full transition-all hover:scale-105 border border-gray-200"
+            Nous développons des projets concrets et innovants
+          </motion.h1>      
+          
+          <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-center text-lg md:text-2xl text-white/70 mb-10 max-w-4xl mx-auto leading-relaxed"
           >
-            Rencontrer l'équipe
-          </Link>
-      </motion.div>
-    </div>
-  </div>
-</section>
+              MIC, c’est Matéis, Mathys, Inès et Clément. Ensemble, nous transformons des idées en solutions concrètes et sociales.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          >
+              <Link 
+                to=""
+                className="px-8 py-4 bg-[#233147] hover:bg-[#233147]/90 text-white 
+                font-bold rounded-full transition-all flex items-center gap-2 group shadow-lg hover:shadow-xl"
+              >
+                Découvrir nos projets
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <Link 
+                to=""
+                className="px-8 py-4 bg-gray-100 hover:bg-gray-200 text-gray-900 font-bold rounded-full transition-all hover:scale-105 border border-gray-200"
+              >
+                Rencontrer l'équipe
+              </Link>
+          </motion.div>
+        </div>
+      </div>
+    </section>
 
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
@@ -279,6 +308,7 @@ const Home = () => {
 
       {/* Final CTA */}
       <section className="py-24 px-6 bg-white">
+
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
