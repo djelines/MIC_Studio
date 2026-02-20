@@ -23,7 +23,7 @@ export default function WorldMap({
     radius: 0.22,
     color: "#FFFFFF40",
     shape: "circle",
-    backgroundColor: "black"
+    backgroundColor: "black",
   });
 
   const projectPoint = (lat: number, lng: number) => {
@@ -34,7 +34,7 @@ export default function WorldMap({
 
   const createCurvedPath = (
     start: { x: number; y: number },
-    end: { x: number; y: number }
+    end: { x: number; y: number },
   ) => {
     const midX = (start.x + end.x) / 2;
     const midY = Math.min(start.y, end.y) - 50;
@@ -44,11 +44,9 @@ export default function WorldMap({
   return (
     <div className="w-full h-full aspect-[2/1] dark:bg-black absolute font-sans">
       <img
-        src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}
-        className="h-full w-full [mask-image:linear-gradient(to_bottom,transparent,dark_10%,dark_90%,transparent)] pointer-events-none select-none"
+        src="/static/worldmap.svg"
+        className="h-full w-full pointer-events-none select-none"
         alt="world map"
-        height="495"
-        width="1056"
         draggable={false}
       />
       <svg

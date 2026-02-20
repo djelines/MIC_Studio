@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
           {/* Brand Info */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-              <img src='/static/LogoMIC.png' alt='logo' className='w-12 h-12'/>
+              <img src='/static/LogoMIC.webp' alt='logo' className='w-12 h-12'/>
               <span className="text-2xl font-black text-white tracking-tighter">MIC Studio</span>
             </div>
             <p className="text-sm leading-relaxed max-w-xs opacity-70">
