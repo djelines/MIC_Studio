@@ -127,7 +127,7 @@ export const SystemArchitecture: React.FC = () => {
       </g>
 
       {/* Number 02 Watermark - Visible */}
-      <text x="30" y="130" textAnchor="start" className="fill-slate-200 text-8xl font-bold font-mono opacity-80">02</text>
+      <text x="30" y="130" textAnchor="start" className="fill-slate-500 text-8xl font-bold font-mono opacity-80">02</text>
     </svg>
   );
 };

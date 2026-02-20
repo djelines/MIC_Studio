@@ -3,6 +3,7 @@ import React from 'react';
 import { ShieldCheck, Palette, Users, BookOpen, Rocket, Code, Building, Zap, Compass } from 'lucide-react';
 import { Member, Project, TimelineEvent } from './types';
 
+
 export const MEMBERS: Member[] = [
   {
     id: 'mateis',
@@ -170,13 +171,6 @@ export const TIMELINE: ExtendedTimelineEvent[] = [
 
 export const LogoMIC = ({ className = "w-12 h-12" }) => (
   <div className={`${className} relative flex items-center justify-center`}>
-    <div className="absolute inset-0 bg-gradient-to-br from-[#d4c3f5] via-[#a5b4fc] to-[#e879f9] rounded-full blur-[2px] opacity-80" />
-    <div className="relative w-full h-full bg-[#c084fc] rounded-full shadow-inner flex items-center justify-center border-4 border-[#7c3aed] overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_40%,_rgba(0,0,0,0.1)_100%)]" />
-      <svg viewBox="0 0 100 100" className="w-8 h-8 text-[#2e1065] drop-shadow-md">
-        <path fill="currentColor" d="M20 70 L20 30 L40 55 L60 30 L60 70 L80 70 Q80 85 50 85 Q20 85 20 70" />
-        <rect x="70" y="45" width="10" height="10" fill="currentColor" rx="2" />
-      </svg>
-    </div>
+    <img src="/static/LogoMIC.png" alt="logo" />
   </div>
 );

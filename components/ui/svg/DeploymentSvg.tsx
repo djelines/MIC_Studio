@@ -87,7 +87,7 @@ export const DeploymentStatus: React.FC = () => {
       </g>
 
       {/* Number 04 Watermark - Visible */}
-      <text x="120" y="150" textAnchor="end" className="fill-slate-200 text-8xl font-bold font-mono opacity-80">04</text>
+      <text x="120" y="150" textAnchor="end" className="fill-slate-500 text-8xl font-bold font-mono opacity-80">04</text>
 
     </svg>
   );

@@ -77,6 +77,7 @@ export const ProjectCarousel: React.FC = () => {
   }, [isAutoPlaying, paginate, page]);
 
   return (
+    <section className="py-32 bg-white overflow-hidden">
     <div className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col justify-center min-h-[800px]">
       
       {/* Header with Title and Navigation Arrows */}
@@ -96,14 +97,14 @@ export const ProjectCarousel: React.FC = () => {
                 variant="outline"
                 size="icon"
                 onClick={() => paginate(-1)}
-                className="h-10 w-10 rounded-full border-border/50 bg-background/30 backdrop-blur-md hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-300 shadow-sm"
+                className="h-10 w-10 rounded-full border-border/50 bg-background/30 backdrop-blur-md hover:bg-member3 hover:text-background hover:border-member3 transition-all duration-300 shadow-sm"
                 aria-label="Previous project"
               >
                 <ChevronLeft className="h-5 w-5" />
               </Button>
-              <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-foreground text-background text-[10px] font-bold tracking-wide uppercase rounded opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none whitespace-nowrap shadow-xl translate-y-2 group-hover:translate-y-0">
+              <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-member3 text-background text-[10px] font-bold tracking-wide uppercase rounded opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none whitespace-nowrap shadow-xl translate-y-2 group-hover:translate-y-0">
                 Précédent
-                <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-foreground"></div>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-member3"></div>
               </div>
            </div>
 
@@ -113,14 +114,14 @@ export const ProjectCarousel: React.FC = () => {
                 variant="outline"
                 size="icon"
                 onClick={() => paginate(1)}
-                className="h-10 w-10 rounded-full border-border/50 bg-background/30 backdrop-blur-md hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-300 shadow-sm"
+                className="h-10 w-10 rounded-full border-border/50 bg-background/30 backdrop-blur-md hover:bg-member3 hover:text-background hover:border-member3 transition-all duration-300 shadow-sm"
                 aria-label="Next project"
               >
                 <ChevronRight className="h-5 w-5" />
               </Button>
-               <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-foreground text-background text-[10px] font-bold tracking-wide uppercase rounded opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none whitespace-nowrap shadow-xl translate-y-2 group-hover:translate-y-0">
+               <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1 bg-member3 text-background text-[10px] font-bold tracking-wide uppercase rounded opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none whitespace-nowrap shadow-xl translate-y-2 group-hover:translate-y-0">
                 Prochain
-                <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-foreground"></div>
+                <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-member3"></div>
               </div>
            </div>
            </div>
@@ -168,7 +169,7 @@ export const ProjectCarousel: React.FC = () => {
                    custom={0}
                    variants={textVariants}
                 >
-                  <h3 className="text-4xl md:text-5xl font-bold font-display text-foreground mb-6 leading-[0.95]">
+                  <h3 className="text-4xl md:text-5xl font-bold font-display text-member3 mb-6 leading-[0.95]">
                     {currentProject.title}
                   </h3>
                 </motion.div>
@@ -182,9 +183,9 @@ export const ProjectCarousel: React.FC = () => {
                 >
                   <div className="flex items-center gap-2 mb-4">
                      <Minus className="text-primary w-8 h-px" />
-                     <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">à propos du projet</span>
+                     <span className="text-xs font-mono uppercase tracking-wider text-muted-member3">à propos du projet</span>
                   </div>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
+                  <p className="text-muted-member3 text-lg leading-relaxed">
                     {currentProject.description}
                   </p>
                 </motion.div>
@@ -199,8 +200,8 @@ export const ProjectCarousel: React.FC = () => {
                 >
                   {currentProject.stats?.map((stat) => (
                     <div key={stat.label} className="border-l-2 border-border pl-4">
-                      <p className="text-xs font-mono uppercase text-muted-foreground mb-1">{stat.label}</p>
-                      <p className="text-xl font-bold font-display text-foreground">{stat.value}</p>
+                      <p className="text-xs font-mono uppercase text-muted-member3 mb-1">{stat.label}</p>
+                      <p className="text-xl font-bold font-display text-member3">{stat.value}</p>
                     </div>
                   ))}
                 </motion.div>
@@ -215,13 +216,13 @@ export const ProjectCarousel: React.FC = () => {
                 >
                   <div className="flex flex-wrap gap-2">
                     {currentProject.tags.map((tag) => (
-                      <span key={tag} className="text-xs font-medium px-3 py-1 rounded-full bg-secondary text-secondary-foreground border border-transparent hover:border-border transition-colors cursor-default">
+                      <span key={tag} className="text-xs font-medium px-3 py-1 rounded-full bg-secondary text-secondary-member3 border border-transparent hover:border-border transition-colors cursor-default">
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <Button size="lg" variant='blue' className="w-full rounded-2xl h-14 text-base shadow-lg shadow-primary/20 group">
+                  <Button size="lg" className="w-full bg-member3 rounded-2xl h-14 text-base shadow-lg shadow-primary/20 group hover:bg-member1">
                     Voir le projet
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </Button>
@@ -242,9 +243,9 @@ export const ProjectCarousel: React.FC = () => {
            
            {/* Pagination */}
            <div className="flex items-center gap-1 font-mono text-sm select-none">
-             <span className="text-foreground font-semibold">{String(projectIndex + 1).padStart(2, '0')}</span>
-             <span className="text-muted-foreground/40 mx-1">/</span>
-             <span className="text-muted-foreground">{String(PROJECTS.length).padStart(2, '0')}</span>
+             <span className="text-member3 font-semibold">{String(projectIndex + 1).padStart(2, '0')}</span>
+             <span className="text-muted-member3/40 mx-1">/</span>
+             <span className="text-muted-member3">{String(PROJECTS.length).padStart(2, '0')}</span>
            </div>
            
            <div className="w-px h-4 bg-border/60 mx-1"></div>
@@ -271,7 +272,7 @@ export const ProjectCarousel: React.FC = () => {
                 <TooltipTrigger>
                     <button
                         onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                        className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-secondary text-foreground/80 hover:text-foreground transition-colors focus:outline-none"
+                        className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-secondary text-member3/80 hover:text-member3 transition-colors focus:outline-none"
                         aria-label={isAutoPlaying ? "Pause autoplay" : "Start autoplay"}
                     >
                         {isAutoPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 ml-0.5" />}
@@ -287,7 +288,7 @@ export const ProjectCarousel: React.FC = () => {
 
         {/* Optional Right Side Link */}
         <div className="hidden md:block">
-           <a href="#/realisations" className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group">
+           <a href="#/realisations" className="text-sm font-medium text-muted-member3 hover:text-primary transition-colors flex items-center gap-2 group">
               Voir tous les projets
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
            </a>
@@ -295,5 +296,6 @@ export const ProjectCarousel: React.FC = () => {
       </div>
 
     </div>
+    </section>
   );
 };

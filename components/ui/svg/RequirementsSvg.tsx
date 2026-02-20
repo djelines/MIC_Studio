@@ -53,7 +53,7 @@ export const RequirementsMap: React.FC = () => {
       </g>
 
       {/* Number 01 Watermark - Visible */}
-      <text x="340" y="360" textAnchor="end" className="fill-slate-200 text-8xl font-bold font-mono opacity-80">01</text>
+      <text x="340" y="360" textAnchor="end" className="fill-slate-500 text-8xl font-bold font-mono opacity-80">01</text>
     </svg>
   );
 };

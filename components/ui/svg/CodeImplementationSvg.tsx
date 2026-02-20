@@ -66,7 +66,7 @@ export const CodeImplementation: React.FC = () => {
       <text x="302" y="216" textAnchor="middle" className="fill-blue-600 text-[10px] font-bold font-sans">TS</text>
 
       {/* Number 03 Watermark - Visible */}
-      <text x="40" y="380" textAnchor="start" className="fill-slate-200 text-8xl font-bold font-mono opacity-80">03</text>
+      <text x="40" y="380" textAnchor="start" className="fill-slate-500 text-8xl font-bold font-mono opacity-80">03</text>
 
     </svg>
   );
