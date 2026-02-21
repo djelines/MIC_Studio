@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Hero from '../components/Hero';
+import Hero from '../components/ui/Hero';
 import { MEMBERS } from '../constants';
 import { Github, Linkedin, ExternalLink, Sparkles, Star, User } from 'lucide-react';
 import { Member } from '../types';
@@ -12,9 +12,9 @@ const TeamCardInteraction = ({ member, index }: { member: Member, index: number 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="group relative flex flex-col w-full bg-white rounded-[1.5rem] md:rounded-[2rem] border border-slate-100 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full"
+      className="group relative flex flex-col w-full bg-white rounded-[1.25rem] md:rounded-[2rem] border border-slate-100 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full"
     >
-      <div className="w-full h-[220px] md:h-[240px] lg:h-[260px] relative overflow-hidden bg-slate-50 border-b border-slate-100 shrink-0">
+      <div className="w-full h-[200px] md:h-[240px] lg:h-[260px] relative overflow-hidden bg-slate-50 border-b border-slate-100 shrink-0">
         <div className="absolute inset-0 flex items-center justify-center bg-lemonade-bg z-0 group-hover:opacity-0 transition-opacity duration-700">
            <div className="text-center opacity-30">
               <div className="w-16 h-16 rounded-full border-2 border-dashed border-slate-300 flex items-center justify-center mx-auto mb-3 bg-white/50">
@@ -33,15 +33,15 @@ const TeamCardInteraction = ({ member, index }: { member: Member, index: number 
         <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none" style={{ backgroundColor: member.color }} />
       </div>
 
-      <div className="flex-1 p-5 md:p-6 flex flex-col justify-between z-10 bg-white relative">
-        <div className="space-y-3 md:space-y-4 mb-4 md:mb-6">
+      <div className="flex-1 p-4 md:p-6 flex flex-col justify-between z-10 bg-white relative">
+        <div className="space-y-2.5 md:space-y-4 mb-3 md:mb-6">
           <div className="space-y-1">
-            <h3 className="text-xl md:text-2xl font-black text-slate-800 tracking-tight">{member.name}</h3>
+            <h3 className="text-lg md:text-2xl font-black text-slate-800 tracking-tight">{member.name}</h3>
             <div className="w-8 h-px bg-slate-200" />
-            <p className="font-extrabold tracking-[0.15em] uppercase text-[10px] mt-2" style={{ color: member.color }}>{member.role}</p>
+            <p className="font-extrabold tracking-[0.15em] uppercase text-[9px] md:text-[10px] mt-2" style={{ color: member.color }}>{member.role}</p>
           </div>
           
-          <p className="text-xs md:text-sm italic leading-relaxed font-medium text-slate-500">
+          <p className="text-[11px] md:text-sm italic leading-relaxed font-medium text-slate-500">
             "{member.quote}"
           </p>
         </div>
@@ -53,7 +53,7 @@ const TeamCardInteraction = ({ member, index }: { member: Member, index: number 
           </div>
           <a 
             href={member.portfolio} 
-            className="flex items-center gap-1.5 text-[10px] md:text-[11px] font-black uppercase tracking-widest text-member1 hover:gap-2 transition-all"
+            className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-black uppercase tracking-widest text-member1 hover:gap-2 transition-all"
           >
             Portfolio <ExternalLink className="w-2.5 h-2.5 md:w-3 md:h-3" />
           </a>
@@ -78,7 +78,7 @@ const Equipe = () => {
 
       <section className="py-16 md:py-24 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12 md:mb-16 lg:mb-24 max-w-3xl mx-auto space-y-4 md:space-y-6 relative">
+          <div className="text-center mb-10 md:mb-16 lg:mb-24 max-w-3xl mx-auto space-y-3 md:space-y-6 relative">
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
@@ -86,13 +86,13 @@ const Equipe = () => {
             >
               <Star className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 text-member1" />
             </motion.div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-800 font-outfit uppercase">Nos Experts</h2>
-            <p className="text-base md:text-lg lg:text-xl text-slate-500 font-medium leading-relaxed px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-800 font-outfit uppercase">Nos Experts</h2>
+            <p className="text-sm md:text-lg lg:text-xl text-slate-500 font-medium leading-relaxed px-3 sm:px-4">
               Une complémentarité parfaite pour des projets d'exception. Découvrez les esprits derrière MIC Studio.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
             {MEMBERS.map((member, idx) => (
               <TeamCardInteraction key={member.id} member={member} index={idx} />
             ))}

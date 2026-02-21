@@ -1,7 +1,11 @@
 
 import React from 'react';
-import { ShieldCheck, Palette, Users, BookOpen, Rocket, Code, Building, Zap, Compass } from 'lucide-react';
+import { ShieldCheck, Palette, Users, BookOpen, Rocket, Code, Building, Zap, Compass, Search, Layers, Code2 } from 'lucide-react';
 import { Member, Project, TimelineEvent } from './types';
+import { RequirementsMap } from './components/ui/svg/RequirementsSvg';
+import { SystemArchitecture } from './components/ui/svg/SystemArchitectureSvg';
+import { CodeImplementation } from './components/ui/svg/CodeImplementationSvg';
+import { DeploymentStatus } from './components/ui/svg/DeploymentSvg';
 
 
 export const MEMBERS: Member[] = [
@@ -174,3 +178,52 @@ export const LogoMIC = ({ className = "w-12 h-12" }) => (
     <img src="/static/LogoMIC.webp" alt="logo" />
   </div>
 );
+
+export const developmentSteps = [
+  {
+    title: "Exigence",
+    description: "Nous étudions en profondeur vos besoins, votre marché et.",
+    icon: Search,
+    color: "#746ac8",
+    svg: <RequirementsMap />,
+  },
+  {
+    title: "Architecture",
+    description:
+      "Conception d'une architecture technique solide et scalable.",
+    icon: Layers,
+    color: "#49b4a7",
+    svg: <SystemArchitecture />,
+  },
+  {
+    title: "Développement",
+    description:
+      "Implémentation rigoureuse avec des pratiques de code propres.",
+    icon: Code2,
+    color: "#4992f1",
+    svg: <CodeImplementation />,
+  },
+  {
+    title: "Déploiement",
+    description:
+      "Déploiement sécurisé, monitoring continu et accompagnement.",
+    icon: Rocket,
+    color: "#233147",
+    svg: <DeploymentStatus />,
+  },
+];
+
+export const faqs = [
+  {
+    q: "Pourquoi choisir MIC Studio ?",
+    a: "Notre force réside dans la complémentarité de nos profils et notre engagement total sur chaque projet. Nous ne livrons pas seulement du code, nous bâtissons des solutions durables.",
+  },
+  {
+    q: "Quelles technologies utilisez-vous ?",
+    a: "Nous privilégions les stacks modernes comme Next.js, TypeScript et Node.js pour assurer performance et évolutivité. Nous adaptons la technologie au besoin, pas l'inverse.",
+  },
+  {
+    q: "Êtes-vous disponibles pour de nouveaux projets ?",
+    a: "Oui, nous sommes toujours à la recherche de défis innovants, particulièrement ceux à impact social. Parlons-en !",
+  },
+];

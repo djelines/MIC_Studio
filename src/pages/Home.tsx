@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { VALUES } from "../constants";
+import { developmentSteps, faqs, VALUES } from "../constants";
 import {
   Plus,
   ArrowRight,
@@ -10,14 +10,14 @@ import {
   Rocket,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { DevelopmentStepCard } from "@/components/DevelopmentStepCard";
+import { DevelopmentStepCard } from "@/components/ui/DevelopmentStepCard";
 import { RequirementsMap } from "@/components/ui/svg/RequirementsSvg";
 import { SystemArchitecture } from "@/components/ui/svg/SystemArchitectureSvg";
 import { CodeImplementation } from "@/components/ui/svg/CodeImplementationSvg";
 import { DeploymentStatus } from "@/components/ui/svg/DeploymentSvg";
 import { ProjectCarousel } from "@/components/ui/ProjectsCarousel";
 import WorldMap from "@/components/ui/world-map";
-import FinalCTA from "@/components/FinalCTA";
+import FinalCTA from "@/components/ui/FinalCTA";
 
 export const SectionTitle = ({
   children,
@@ -33,55 +33,6 @@ export const SectionTitle = ({
 
 const Home = () => {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
-
-  const faqs = [
-    {
-      q: "Pourquoi choisir MIC Studio ?",
-      a: "Notre force réside dans la complémentarité de nos profils et notre engagement total sur chaque projet. Nous ne livrons pas seulement du code, nous bâtissons des solutions durables.",
-    },
-    {
-      q: "Quelles technologies utilisez-vous ?",
-      a: "Nous privilégions les stacks modernes comme Next.js, TypeScript et Node.js pour assurer performance et évolutivité. Nous adaptons la technologie au besoin, pas l'inverse.",
-    },
-    {
-      q: "Êtes-vous disponibles pour de nouveaux projets ?",
-      a: "Oui, nous sommes toujours à la recherche de défis innovants, particulièrement ceux à impact social. Parlons-en !",
-    },
-  ];
-
-  const developmentSteps = [
-    {
-      title: "Exigence",
-      description: "Nous étudions en profondeur vos besoins, votre marché et.",
-      icon: Search,
-      color: "#746ac8",
-      svg: <RequirementsMap />,
-    },
-    {
-      title: "Architecture",
-      description:
-        "Conception d'une architecture technique solide et scalable.",
-      icon: Layers,
-      color: "#49b4a7",
-      svg: <SystemArchitecture />,
-    },
-    {
-      title: "Développement",
-      description:
-        "Implémentation rigoureuse avec des pratiques de code propres.",
-      icon: Code2,
-      color: "#4992f1",
-      svg: <CodeImplementation />,
-    },
-    {
-      title: "Déploiement",
-      description:
-        "Déploiement sécurisé, monitoring continu et accompagnement.",
-      icon: Rocket,
-      color: "#233147",
-      svg: <DeploymentStatus />,
-    },
-  ];
 
   const iconColorMap: Record<string, string> = {
     member1: "text-member1",
@@ -163,7 +114,7 @@ const Home = () => {
             >
               <Link
                 to=""
-                className="px-8 py-4 bg-[#233147] hover:bg-[#233147]/90 text-white 
+                className="px-4 lg:px-8 py-4 text-sm md:text-base bg-[#233147] hover:bg-[#233147]/90 text-white 
                 font-bold rounded-full transition-all flex items-center gap-2 group shadow-lg hover:shadow-xl"
               >
                 Découvrir nos projets
@@ -172,7 +123,7 @@ const Home = () => {
 
               <Link
                 to=""
-                className="px-8 py-4 bg-gray-100 hover:bg-gray-200 text-gray-900 font-bold rounded-full transition-all hover:scale-105 border border-gray-200"
+                className="px-4 lg:px-8 py-4 text-sm md:text-base bg-gray-100 hover:bg-gray-200 text-gray-900 font-bold rounded-full transition-all hover:scale-105 border border-gray-200"
               >
                 Rencontrer l'équipe
               </Link>
@@ -201,7 +152,7 @@ const Home = () => {
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid px-4 md:px-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {developmentSteps.map((step, idx) => (
               <DevelopmentStepCard
                 key={step.title}
@@ -225,7 +176,7 @@ const Home = () => {
               L'essence de MIC STUDIO capturée sur le vif.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-12">
+          <div className="px-4 md:px-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 lg:gap-12">
             {VALUES.map((val, idx) => (
               <motion.div
                 key={val.title}
@@ -327,13 +278,13 @@ const Home = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative aspect-square"
+              className="relative aspect-square md:block hidden"
             >
               <div className="absolute inset-0 bg-member1/5 rounded-[2rem] md:rounded-[3rem] lg:rounded-[4rem] rotate-3 -z-10 blur-2xl" />
               <img
                 src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?q=80&w=2070&auto=format&fit=crop"
                 alt="Studio FAQ"
-                className="w-full h-full object-cover rounded-[1.5rem] md:rounded-[2rem] lg:rounded-[3rem] shadow-2xl"
+                className=" w-full h-full object-cover rounded-[1.5rem] md:rounded-[2rem] lg:rounded-[3rem] shadow-2xl"
               />
               <div className="absolute -bottom-6 md:-bottom-8 lg:-bottom-10 -right-6 md:-right-8 lg:-right-10 glass p-5 md:p-6 lg:p-8 rounded-2xl md:rounded-3xl border border-slate-200 hidden md:block bg-white/90">
                 <p className="text-member1 font-bold text-base md:text-lg">

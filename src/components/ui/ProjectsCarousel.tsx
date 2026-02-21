@@ -76,7 +76,7 @@ export const ProjectCarousel: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-16 md:py-24 lg:py-32 bg-white overflow-hidden">
+    <section className="hidden md:block py-16 md:py-24 lg:py-32 bg-white overflow-hidden">
     <div className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8 lg:py-12 flex flex-col justify-center min-h-[500px] md:min-h-[600px] lg:min-h-[700px]">
       
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0 mb-6 md:mb-8">

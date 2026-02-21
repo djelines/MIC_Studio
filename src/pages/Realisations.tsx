@@ -45,13 +45,13 @@ const Realisations = () => {
         <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
 
         <div className="w-full h-full flex items-center justify-center mt-10">
-          <div className="relative z-20 max-w-5xl mx-auto px-6 text-center pointer-events-none">
+          <div className="relative z-20 max-w-4xl md:max-w-5xl mx-auto px-4 sm:px-6 text-center pointer-events-none">
             
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/70 mb-4 md:mb-6 leading-tight drop-shadow-sm pointer-events-auto"
+              className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/70 mb-3 md:mb-6 leading-tight drop-shadow-sm pointer-events-auto"
             >
               Nos Réalisations
             </motion.h1>
@@ -63,7 +63,7 @@ const Realisations = () => {
         
       </section>
 
-      <section className="py-16 md:py-24 lg:py-32 space-y-16 md:space-y-24 lg:space-y-32">
+      <section className="py-12 md:py-24 lg:py-32 space-y-12 md:space-y-24 lg:space-y-32">
         {PROJECTS.map((proj, idx) => {
           const allImages = [
             proj.image,
@@ -82,15 +82,15 @@ const Realisations = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative p-1 md:p-1.5 rounded-[1.5rem] md:rounded-[2rem] lg:rounded-[2.5rem] bg-white border border-slate-300 shadow-2xl"
+              className="relative p-1 md:p-1.5 rounded-[1.25rem] md:rounded-[2rem] lg:rounded-[2.5rem] bg-white border border-slate-300 shadow-2xl"
             >
-              <div className="bg-white rounded-[1.5rem] md:rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden p-4 md:p-5 lg:p-6">
-                <div className={`flex flex-col lg:items-center gap-6 md:gap-8 lg:gap-10 ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
+              <div className="bg-white rounded-[1.25rem] md:rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden p-4 md:p-5 lg:p-6">
+                <div className={`flex flex-col lg:items-center gap-5 md:gap-8 lg:gap-10 ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                   
                   <div className="flex-1 group relative">
                     <div className="absolute inset-0 bg-member1/10 blur-3xl opacity-0 group-hover:opacity-30 transition-opacity" />
                     
-                    <div className="relative rounded-[1.25rem] md:rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden shadow-xl border border-slate-100 aspect-video lg:aspect-[4/3] mb-3 z-10">
+                    <div className="relative rounded-[1rem] md:rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden shadow-xl border border-slate-100 aspect-video lg:aspect-[4/3] mb-3 z-10">
                       <AnimatePresence mode="wait">
                         <motion.img 
                           key={selectedIndex}
@@ -132,14 +132,14 @@ const Realisations = () => {
                     </div>
                   </div>
 
-                  <div className="flex-1 space-y-5 md:space-y-6 lg:space-y-8">
+                  <div className="flex-1 space-y-4 md:space-y-6 lg:space-y-8">
                     <div className="space-y-3 md:space-y-4">
                       <div className="flex items-center gap-2 md:gap-3">
-                        <span className="px-2.5 md:px-3 lg:px-4 py-1 md:py-1.5 rounded-full bg-member1/10 text-member1 font-black text-[10px] md:text-xs uppercase tracking-widest border border-member1/20">Projet #0{idx + 1}</span>
+                        <span className="px-2 md:px-3 lg:px-4 py-0.5 md:py-1.5 rounded-full bg-member1/10 text-member1 font-black text-[9px] md:text-xs uppercase tracking-widest border border-member1/20">Projet #0{idx + 1}</span>
                         <div className="h-px flex-grow bg-slate-100" />
                       </div>
-                      <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black tracking-tight text-slate-800">{proj.title}</h2>
-                      <p className="text-sm md:text-base lg:text-lg xl:text-xl text-slate-500 leading-relaxed font-medium">
+                      <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black tracking-tight text-slate-800">{proj.title}</h2>
+                      <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-slate-500 leading-relaxed font-medium">
                         {proj.description}
                       </p>
                     </div>
@@ -149,10 +149,10 @@ const Realisations = () => {
                         whileHover={{ y: -3 }}
                         className="p-4 md:p-5 lg:p-6 rounded-xl md:rounded-2xl bg-blue-50/60 shadow-sm backdrop-blur-sm"
                       >
-                        <h4 className="font-bold text-sm md:text-base lg:text-lg flex items-center gap-2 mb-2 md:mb-3 text-blue-600"><Code2 className="w-4 h-4 md:w-5 md:h-5" /> Stack Technique</h4>
+                        <h4 className="font-bold text-xs sm:text-sm md:text-base lg:text-lg flex items-center gap-2 mb-2 md:mb-3 text-blue-600"><Code2 className="w-4 h-4 md:w-5 md:h-5" /> Stack Technique</h4>
                         <div className="flex flex-wrap gap-1.5 md:gap-2">
                           {proj.stack.map(s => (
-                            <span key={s} className="px-2.5 md:px-3 py-0.5 md:py-1 bg-white/70 border border-blue-100 text-blue-700 rounded-lg text-[10px] md:text-xs font-bold shadow-sm">{s}</span>
+                            <span key={s} className="px-2 md:px-3 py-0.5 md:py-1 bg-white/70 border border-blue-100 text-blue-700 rounded-lg text-[9px] md:text-xs font-bold shadow-sm">{s}</span>
                           ))}
                         </div>
                       </motion.div>
@@ -161,10 +161,10 @@ const Realisations = () => {
                         whileHover={{ y: -3 }}
                         className="p-4 md:p-5 lg:p-6 rounded-xl md:rounded-2xl bg-emerald-50/60 shadow-sm backdrop-blur-sm"
                       >
-                        <h4 className="font-bold text-sm md:text-base lg:text-lg flex items-center gap-2 mb-2 md:mb-3 text-emerald-600"><Sparkles className="w-4 h-4 md:w-5 md:h-5" /> Fonctionnalités</h4>
+                        <h4 className="font-bold text-xs sm:text-sm md:text-base lg:text-lg flex items-center gap-2 mb-2 md:mb-3 text-emerald-600"><Sparkles className="w-4 h-4 md:w-5 md:h-5" /> Fonctionnalités</h4>
                         <ul className="space-y-1.5 md:space-y-2">
                           {proj.features.map(f => (
-                            <li key={f} className="flex items-center gap-2 text-xs md:text-sm lg:text-base text-slate-600 font-medium">
+                            <li key={f} className="flex items-center gap-2 text-[11px] sm:text-xs md:text-sm lg:text-base text-slate-600 font-medium">
                               <CheckCircle className="w-3.5 h-3.5 md:w-4 md:h-4 text-emerald-500 flex-shrink-0" /> <span>{f}</span>
                             </li>
                           ))}
@@ -173,7 +173,7 @@ const Realisations = () => {
                     </div>
 
                     <div className="pt-4 md:pt-6 border-t border-slate-100 flex flex-wrap gap-3 md:gap-4">
-                      <a href={proj.link} className="inline-flex items-center gap-2 px-6 md:px-8 lg:px-10 py-2.5 md:py-3 lg:py-3.5 bg-member1 text-white font-black text-xs md:text-sm rounded-full hover:shadow-2xl hover:scale-105 transition-all shadow-lg">
+                      <a href={proj.link} className="inline-flex items-center gap-2 px-5 md:px-8 lg:px-10 py-2 md:py-3 lg:py-3.5 bg-member1 text-white font-black text-xs md:text-sm rounded-full hover:shadow-2xl hover:scale-105 transition-all shadow-lg">
                         Visiter la plateforme <ExternalLink className="w-3.5 h-3.5 md:w-4 md:h-4" />
                       </a>
                     </div>
@@ -185,7 +185,7 @@ const Realisations = () => {
           );
         })}
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-20 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-20 lg:py-24">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}

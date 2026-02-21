@@ -4,17 +4,17 @@ import { Mail, Phone, Linkedin, Github, Globe, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#0f172a] text-slate-400 py-16 px-6 relative overflow-hidden">
+    <footer className="bg-[#0f172a] text-slate-400 py-12 md:py-16 px-5 md:px-6 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-700 to-transparent"></div>
       
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12 mb-12 md:mb-16">
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
               <img src='/static/LogoMIC.webp' alt='logo' className='w-12 h-12'/>
-              <span className="text-2xl font-black text-white tracking-tighter">MIC Studio</span>
+              <span className="text-xl md:text-2xl font-black text-white tracking-tighter">MIC Studio</span>
             </div>
-            <p className="text-sm leading-relaxed max-w-xs opacity-70">
+            <p className="text-xs md:text-sm leading-relaxed max-w-xs opacity-70 hidden md:block">
               Experts en développement de solutions digitales concrètes. Nous allions rigueur technique et créativité pour transformer vos idées.
             </p>
             <div className="flex space-x-4">
@@ -23,9 +23,9 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className="space-y-6">
-            <h4 className="text-white font-black text-xs uppercase tracking-[0.2em]">Sitemap</h4>
-            <ul className="space-y-3 text-sm font-bold">
+          <div className="space-y-6 hidden md:block">
+            <h4 className="text-white font-black text-[11px] md:text-xs uppercase tracking-[0.2em]">Sitemap</h4>
+            <ul className="space-y-2 md:space-y-3 text-xs md:text-sm font-bold">
               <li><Link to="/" className="hover:text-[var(--p)] transition-colors">Accueil</Link></li>
               <li><Link to="/epopee" className="hover:text-[var(--p)] transition-colors">Notre Épopée</Link></li>
               <li><Link to="/realisation" className="hover:text-[var(--p)] transition-colors">Réalisations</Link></li>
@@ -34,8 +34,8 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="space-y-6">
-            <h4 className="text-white font-black text-xs uppercase tracking-[0.2em]">Contact</h4>
-            <ul className="space-y-4 text-sm font-bold">
+            <h4 className="text-white font-black text-[11px] md:text-xs uppercase tracking-[0.2em]">Contact</h4>
+            <ul className="space-y-3 md:space-y-4 text-xs md:text-sm font-bold">
               <li className="flex items-center space-x-3 group">
                 <div className="p-2 bg-slate-800 rounded-lg group-hover:bg-[#4992f1] group-hover:text-white transition-all"><Mail size={14} /></div>
                 <a href="mailto:contact@mic-studio.fr" className="group-hover:text-white">contact@mic-studio.fr</a>
@@ -51,14 +51,14 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          <div className="space-y-6">
-            <h4 className="text-white font-black text-xs uppercase tracking-[0.2em]">Vision</h4>
-            <p className="text-xs italic leading-relaxed font-medium">
+          <div className="space-y-6 hidden md:block">
+            <h4 className="text-white font-black text-[11px] md:text-xs uppercase tracking-[0.2em]">Vision</h4>
+            <p className="text-[11px] md:text-xs italic leading-relaxed font-medium">
               "La qualité du code et l'expérience utilisateur ne sont pas des options, mais le socle de chaque projet MIC."
             </p>
-            <div className="p-4 bg-slate-800/50 rounded-2xl border border-slate-700/50">
-              <span className="text-[10px] font-black uppercase text-white tracking-widest block mb-2">Statut</span>
-              <div className="flex items-center space-x-2 text-green-400 text-xs font-bold">
+            <div className="p-3 md:p-4 bg-slate-800/50 rounded-2xl border border-slate-700/50">
+              <span className="text-[9px] md:text-[10px] font-black uppercase text-white tracking-widest block mb-2">Statut</span>
+              <div className="flex items-center space-x-2 text-green-400 text-[11px] md:text-xs font-bold">
                 <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
                 <span>Disponible pour de nouveaux défis</span>
               </div>
@@ -66,8 +66,8 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="pt-10 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-[10px] uppercase font-black tracking-[0.4em] opacity-30 text-center">
+        <div className="pt-8 md:pt-10 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-5 md:gap-6">
+          <p className="text-[9px] md:text-[10px] uppercase font-black tracking-[0.4em] opacity-30 text-center">
             © 2026 MIC STUDIO // CODE WITH PASSION
           </p>
           <div className="flex items-center space-x-6 text-[10px] font-black uppercase tracking-widest opacity-30">

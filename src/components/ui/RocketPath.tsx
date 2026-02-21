@@ -89,7 +89,7 @@ const RocketPath: React.FC<RocketPathProps> = ({ height, itemsCount, scrollYProg
         </svg>
 
         <motion.div
-            className="absolute top-0 left-0 w-16 h-16 -ml-8 -mt-8 z-20 will-change-transform"
+            className="absolute top-0 left-0 w-16 h-16 -ml-8 -mt-8 z-20 will-change-transform md:block hidden"
             style={{
                 offsetPath: `path('${pathD}')`,
                 WebkitOffsetPath: `path('${pathD}')`,

@@ -2,8 +2,8 @@ import React, { useEffect, Suspense, lazy, memo } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion';
 
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import Navbar from './components/ui/Navbar';
+import Footer from './components/ui/Footer';
 
 const Home = lazy(() => import('./pages/Home'));
 const Epopee = lazy(() => import('./pages/Epopee'));

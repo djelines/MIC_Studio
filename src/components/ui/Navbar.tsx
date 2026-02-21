@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { LogoMIC } from '../constants';
+import { LogoMIC } from '../../constants';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,12 +60,12 @@ const Navbar = () => {
             </span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
               <Link 
                 key={link.path} 
                 to={link.path}
-                className={`relative text-sm font-semibold tracking-wide transition-colors hover:text-member1 ${
+                className={`relative text-xs lg:text-sm font-semibold tracking-wide transition-colors hover:text-member1 ${
                   location.pathname === link.path 
                     ? 'text-member1' 
                     : 'text-inherit opacity-70 hover:opacity-100'
@@ -96,9 +96,9 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className={`absolute top-24 left-4 right-4 p-8 rounded-3xl md:hidden border shadow-2xl ${currentNavStyle}`}
+            className={`absolute top-24 left-4 right-4 p-6 rounded-3xl md:hidden border shadow-2xl glass`}
           >
-            <div className="flex flex-col gap-6 text-center">
+            <div className="flex flex-col gap-5 text-center">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}

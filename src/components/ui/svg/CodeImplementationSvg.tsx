@@ -2,7 +2,7 @@ import React from 'react';
 
 export const CodeImplementation: React.FC = () => {
   return (
-    <svg viewBox="0 0 400 400" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 400 400" className="max-w-50 lg:w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
       
       <g transform="translate(50, 60)">
          <rect x="0" y="0" width="300" height="240" rx="8" fill="#ffffff" stroke="#475569" strokeWidth="2" className="drop-shadow-sm" />

@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll } from 'framer-motion';
-import Hero from '../components/Hero';
+import Hero from '../components/ui/Hero';
 import { TIMELINE } from '../constants';
 import { Sparkles, Circle } from 'lucide-react';
 import { BubbleBackground } from '@/components/animate-ui/components/backgrounds/bubble';
@@ -47,12 +47,12 @@ const Epopee = () => {
         <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-[#172554] rounded-full blur-[120px] opacity-20 mix-blend-screen" />
 
         
-        <div className='relative z-10 max-w-5xl mx-auto px-6 -mt-10 text-center pointer-events-auto'>
+        <div className='relative z-10 max-w-4xl md:max-w-5xl mx-auto px-4 sm:px-6 -mt-6 md:-mt-10 text-center pointer-events-auto'>
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-4xl md:text-7xl font-extrabold text-white/90 mb-6 leading-tight drop-shadow-sm"
+             className="text-3xl sm:text-4xl md:text-7xl font-extrabold text-white/90 mb-4 md:mb-6 leading-tight drop-shadow-sm"
             >
               Notre épopée
             </motion.h1>
@@ -61,7 +61,7 @@ const Epopee = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-center text-lg md:text-2xl text-white/70 mb-10 max-w-4xl mx-auto leading-relaxed"
+              className="text-center text-sm sm:text-base md:text-2xl text-white/70 mb-6 md:mb-10 max-w-3xl md:max-w-4xl mx-auto leading-relaxed px-2 sm:px-0"
             >
               Voyagez à travers l'histoire de Mic Studio. 
             </motion.p>
@@ -91,7 +91,7 @@ const Epopee = () => {
       ))}
       </div>
 
-      <section className="py-32 relative overflow-hidden">
+      <section className="py-20 md:py-32 relative overflow-hidden">
         
         <div ref={containerRef} className="max-w-7xl mx-auto px-6 space-y-48 md:space-y-64 relative">
           
@@ -131,19 +131,19 @@ const Epopee = () => {
                 >
                   <div className="scotch opacity-80" />
                   
-                  <div className="flex justify-between items-start mb-6">
+                  <div className="flex justify-between items-start mb:-2 md:mb-6">
                     <span className="text-sm font-black uppercase tracking-widest opacity-60" style={{ color: event.color }}>{event.date}</span>
-                    <div className="p-3 rounded-xl bg-slate-50" style={{ color: event.color }}>
+                    <div className=" text-sm md:text-base p-2 md:p-3 rounded-xl bg-slate-50" style={{ color: event.color }}>
                       {event.icon}
                     </div>
                   </div>
                   
-                  <h3 className="text-3xl font-black mb-4 leading-tight text-slate-800">{event.title}</h3>
-                  <p className="text-slate-600 leading-relaxed font-medium text-lg">
+                  <h3 className="text-xl md:text-3xl font-black mb-4 leading-tight text-slate-800">{event.title}</h3>
+                  <p className="text-slate-600 leading-relaxed font-medium text-sm md:text-lg">
                     {event.description}
                   </p>
                   
-                  <div className="absolute bottom-4 right-4 text-xs opacity-20 uppercase tracking-tighter font-bold">MIC STUDIO ARCHIVES</div>
+                  <div className="absolute bottom-2 md:bottom-4 right-4 text-xs opacity-20 uppercase tracking-tighter font-bold">MIC STUDIO ARCHIVES</div>
                 </div>
               </motion.div>
 
@@ -151,10 +151,10 @@ const Epopee = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="flex-1 w-full z-10"
+                className="flex-1 w-full z-10 px-6 md:px-0"
               >
                 <div className="relative group">
-                   <div className={`absolute -inset-4 rounded-[3rem] -rotate-3 transition-transform duration-500 group-hover:rotate-0`} 
+                   <div className={`absolute -inset-3 md:-inset-4 rounded-[3rem] -rotate-3 transition-transform duration-500 group-hover:rotate-0`} 
                    style={{ backgroundColor: event.color, opacity: 0.2 }}/>
                    <img 
                     src={event.image} 
@@ -201,23 +201,20 @@ const Epopee = () => {
 
               <div className="absolute bottom-[10%] left-[8%] right-[8%] h-[35%] bg-gradient-to-b from-white to-slate-100 rounded-full shadow-[inset_0px_-15px_20px_rgba(0,0,0,0.03)] z-10" />
 
-              <div className="absolute left-[25%] bottom-[15%] w-[20%] aspect-square bg-white rounded-full z-10" />
-              <div className="absolute right-[25%] bottom-[15%] w-[20%] aspect-square bg-white rounded-full z-10" />
-
               <div className="absolute inset-0 z-20 flex flex-col items-center justify-end pb-[15%] md:pb-[10%] px-8 md:px-16">
                 
                 <motion.div 
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="w-14 h-14 md:w-20 md:h-20 mb-4 md:mb-6 rounded-full bg-white border-2 md:border-4 border-slate-50 flex items-center justify-center animate-bounce shadow-md cursor-pointer"
+                  className="hidden md:block w-14 h-14 md:w-20 md:h-20 mb-4 md:mb-6 rounded-full bg-white border-2 md:border-4 border-slate-50 flex items-center justify-center animate-bounce shadow-md cursor-pointer"
                 >
                   <Sparkles className="w-6 h-6 md:w-10 md:h-10 text-member3" />
                 </motion.div>
                 
-                <div className="space-y-2 md:space-y-4">
-                  <h2 className="text-3xl md:text-5xl lg:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-member1 via-member3 to-member2">
+                <div className="space-y-2 md:space-y-4 mt-4 md:mt-0">
+                  <h2 className="text-2xl md:text-5xl lg:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-member1 via-member3 to-member2">
                     À Suivre...
                   </h2>
-                  <p className="text-sm md:text-xl lg:text-2xl text-slate-600 max-w-[250px] md:max-w-xl mx-auto leading-relaxed font-bold">
+                  <p className="text-xs md:text-xl lg:text-2xl text-slate-600 max-w-[250px] md:max-w-xl mx-auto leading-relaxed font-bold">
                     Notre histoire ne fait que commencer. De nouveaux défis et projets innovants sont déjà en préparation pour l'avenir.
                   </p>
                 </div>

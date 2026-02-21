@@ -2,7 +2,7 @@ import React from 'react';
 
 export const RequirementsMap: React.FC = () => {
   return (
-    <svg viewBox="0 0 400 400" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 400 400" className="max-w-50 lg:w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <pattern id="stripes" patternUnits="userSpaceOnUse" width="4" height="4">
           <path d="M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2" stroke="#94a3b8" strokeWidth="1" />
