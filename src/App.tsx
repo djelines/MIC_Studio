@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion';
 
 import Navbar from './components/ui/Navbar';
 import Footer from './components/ui/Footer';
+import MentionsLegales from './pages/MentionsLegales';
 
 const Home = lazy(() => import('./pages/Home'));
 const Epopee = lazy(() => import('./pages/Epopee'));
@@ -50,6 +51,7 @@ const AnimatedRoutes = () => {
           <Route path="/epopee" element={<Epopee />} />
           <Route path="/realisations" element={<Realisations />} />
           <Route path="/equipe" element={<Equipe />} />
+          <Route path="/mention" element={<MentionsLegales />} />
         </Routes>
       </Suspense>
     </AnimatePresence>
