@@ -150,7 +150,7 @@ const Hero: React.FC<HeroProps> = ({
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8 }}
-                  className="text-4xl sm:text-5xl text-center md:text-7xl lg:text-7xl font-black text-white mb-6 leading-tight drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+                  className="text-4xl sm:text-5xl max-w-4xl text-center md:text-7xl lg:text-7xl font-black text-white mb-6 leading-tight drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]"
                 >
                   {title}
                 </motion.h1>

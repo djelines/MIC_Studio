@@ -95,7 +95,7 @@ const RocketPath: React.FC<RocketPathProps> = ({ height, itemsCount, scrollYProg
                 WebkitOffsetPath: `path('${pathD}')`,
                 offsetDistance: offsetDistance,
                 offsetRotate: 'auto 0deg', 
-            } as React.CSSProperties}
+            }}
         >
             <motion.div 
                 className="w-full h-full relative"

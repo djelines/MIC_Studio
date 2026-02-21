@@ -84,7 +84,11 @@ export const PROJECTS: Project[] = [
     title: 'MakeItCode (MIC)',
     summary: "Apprends le développement en t'amusant.",
     description: "Application Android gamifiée pour apprendre le code à travers des projets concrets et des mini-jeux interactifs, avec suivi de progression et récompenses motivantes.",
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
+    images: ['https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop'
+    ],
     stack: ['Dart', 'Flutter', 'Firebase', 'Rive'],
     features: [
       'Mini-jeux',
@@ -99,7 +103,11 @@ export const PROJECTS: Project[] = [
     title: 'Banque Republic',
     summary: 'Fintech moderne sécurisée.',
     description: "Application bancaire moderne offrant une gestion complète des comptes, des transactions et des bénéficiaires avec une interface intuitive et sécurisée.",
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop',
+    images: ['https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop'
+    ],
     stack: ['React', 'TailwindCSS', 'Vite', 'FastAPI'],
     features: [
       'Comptes',
@@ -114,7 +122,11 @@ export const PROJECTS: Project[] = [
     title: 'FeedFlow',
     summary: 'Agrégateur de flux et plateforme de sondages.',
     description: "Plateforme SaaS pour centraliser l'information et gérer des sondages. Notifications, multi-organisations et résultats détaillés intégrés.",
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop',
+    images: ['https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop'
+    ],
     stack: ['Laravel', 'PHP', 'Docker', 'TailwindCSS'],
     features: [
       'Sondages',

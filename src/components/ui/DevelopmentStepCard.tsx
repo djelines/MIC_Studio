@@ -1,7 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { LucideIcon } from "lucide-react";
-import { RequirementsMap } from "./svg/RequirementsSvg";
 
 interface DevelopmentStepCardProps {
   title: string;

@@ -4,22 +4,14 @@ import { developmentSteps, faqs, VALUES } from "../constants";
 import {
   Plus,
   ArrowRight,
-  Search,
-  Layers,
-  Code2,
-  Rocket,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { DevelopmentStepCard } from "@/components/ui/DevelopmentStepCard";
-import { RequirementsMap } from "@/components/ui/svg/RequirementsSvg";
-import { SystemArchitecture } from "@/components/ui/svg/SystemArchitectureSvg";
-import { CodeImplementation } from "@/components/ui/svg/CodeImplementationSvg";
-import { DeploymentStatus } from "@/components/ui/svg/DeploymentSvg";
-import { ProjectCarousel } from "@/components/ui/ProjectsCarousel";
 import WorldMap from "@/components/ui/world-map";
 import FinalCTA from "@/components/ui/FinalCTA";
 import { Cobe } from "@/components/ui/cobe-globe";
 import Hero from "@/components/ui/Hero";
+import { ProjectCarousel } from "@/components/ui/ProjectsCarousel";
 
 export const SectionTitle = ({
   children,
@@ -74,7 +66,7 @@ const Home = () => {
       exit={{ opacity: 0 }}
       className="space-y-0"
     >
-      {/* Hero avec carte du monde */}
+      {/* Hero avec carte du monde ou globe si mobile */}
       <Hero
         className="bg-black"
         background={

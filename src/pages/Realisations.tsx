@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PROJECTS } from '../constants';
 import { ExternalLink, CheckCircle, Globe, Code2, Sparkles, ChevronDown, Layers, MonitorSmartphone } from 'lucide-react';
@@ -98,17 +98,11 @@ const Realisations = () => {
 
       {/* Liste des projets */}
       <section className="py-12 md:py-24 lg:py-32 space-y-12 md:space-y-24 lg:space-y-32">
-        {PROJECTS.map((proj, idx) => {
-          const allImages = [
-            proj.image,
-            `https://images.unsplash.com/photo-${['1516321318423', '1563986768609', '1498050108023'][idx]}?q=80&w=1200&auto=format&fit=crop`,
-            `https://images.unsplash.com/photo-${['1553028826-f4804a6dba3b', '1507003211169-0a1dd7228f2d', '1472099645785-5658abf4ff4e'][idx]}?q=80&w=1200&auto=format&fit=crop`,
-            `https://images.unsplash.com/photo-${['1563986768609', '1498050108023', '1516321318423'][idx]}?q=80&w=1200&auto=format&fit=crop`,
-          ];
+      {PROJECTS.map((proj, idx) => {
+          const allImages = proj.images;
           
           const selectedIndex = selectedImages[proj.id] ?? 0;
           const mainImage = allImages[selectedIndex];
-          const thumbnails = allImages.filter((_, i) => i !== selectedIndex);
           
           return (
             <div key={proj.id} id={proj.title} className="max-w-7xl mx-auto px-5 md:px-4 sm:px-6">
@@ -128,7 +122,7 @@ const Realisations = () => {
                       <AnimatePresence mode="wait">
                         <motion.img 
                           key={selectedIndex}
-                          src={mainImage} 
+                          src={mainImage} // CORRECTION : Retrait du [0]
                           alt={proj.title}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
@@ -145,17 +139,20 @@ const Realisations = () => {
                     </div>
 
                     <div className="grid grid-cols-3 gap-2 md:gap-3">
-                      {thumbnails.map((img) => {
-                        const imgIndexInAll = allImages.findIndex((allImg) => allImg === img);
+                      {/* CORRECTION : On map sur toutes les images, et on saute la sélectionnée */}
+                      {allImages.map((img, imgIndexInAll) => {
+                        // Si c're l'image principale, on ne l'affiche pas dans les miniatures
+                        if (imgIndexInAll === selectedIndex) return null;
                         
                         return (
                         <motion.div 
-                          key={imgIndexInAll}
+                          // Clé 100% unique garantie !
+                          key={`${proj.id}-thumb-${imgIndexInAll}`} 
                           onClick={() => setSelectedImages(prev => ({ ...prev, [proj.id]: imgIndexInAll }))}
                           className="relative rounded-lg md:rounded-xl overflow-hidden shadow-sm border-2 border-slate-100 aspect-video cursor-pointer transition-all duration-200 hover:border-member1/30"
                         >
                           <img 
-                            src={img}
+                            src={img} // CORRECTION : Retrait du [0]
                             alt={`${proj.title} - Vue alternative`}
                             className="w-full h-full object-cover"
                           />
@@ -166,6 +163,7 @@ const Realisations = () => {
                     </div>
                   </div>
 
+                  {/* ... (Le reste de ta carte reste identique : titre, descriptions, stack, etc.) ... */}
                   <div className="flex-1 space-y-4 md:space-y-6 lg:space-y-8">
                     <div className="space-y-3 md:space-y-4">
                       <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black tracking-tight text-slate-800">{proj.title}</h2>

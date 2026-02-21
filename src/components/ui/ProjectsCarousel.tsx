@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ArrowRight, Minus, Pause, Play } from 'lucide-react';
 import { Button } from './button';
-import { Badge } from './Badge';
 import { SectionTitle } from '@/pages/Home';
 import { Tooltip, TooltipContent, TooltipTrigger } from './tooltip';
 import { PROJECTS } from '@/constants';
@@ -141,7 +140,7 @@ export const ProjectCarousel: React.FC = () => {
             
             <div className="relative w-full md:w-[60%] h-[45%] md:h-full bg-secondary overflow-hidden group">
               <motion.img
-                src={currentProject.image}
+                src={currentProject.images[0]}
                 alt={currentProject.title}
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 initial={{ scale: 1.1 }}

@@ -1,5 +1,3 @@
-import React from "react";
-
 const MentionsLegales = () => {
   return (
     <div className="bg-white min-h-screen">

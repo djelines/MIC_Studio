@@ -1,8 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll } from 'framer-motion';
 import { TIMELINE } from '../constants';
 import { Sparkles, Circle, ChevronDown, Rocket, Clock, Navigation } from 'lucide-react';
-import { BubbleBackground } from '@/components/animate-ui/components/backgrounds/bubble';
 import RocketPath from '@/components/ui/RocketPath';
 import Hero from '@/components/ui/Hero';
 

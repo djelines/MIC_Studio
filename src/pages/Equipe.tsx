@@ -1,8 +1,6 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { MEMBERS } from '../constants';
-import { Github, Linkedin, ExternalLink, Star, User, Users, Lightbulb, ChevronDown } from 'lucide-react';
-import { Member } from '../types';
+import { Github, Linkedin, Star, Users, Lightbulb, ChevronDown } from 'lucide-react';
 import { TeamMember } from '@/components/ui/TeamMember';
 import Hero from '@/components/ui/Hero';
 
@@ -12,7 +10,7 @@ const Equipe = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="bg-lemonade-bg"
+      className=""
     >
       {/* Hero */}
       <Hero
