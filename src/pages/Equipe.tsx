@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Hero from '../components/ui/Hero';
 import { MEMBERS } from '../constants';
-import { Github, Linkedin, ExternalLink, Sparkles, Star, User } from 'lucide-react';
+import { Github, Linkedin, ExternalLink, Star, User } from 'lucide-react';
 import { Member } from '../types';
 
 const TeamCardInteraction = ({ member, index }: { member: Member, index: number }) => {
@@ -40,19 +40,15 @@ const TeamCardInteraction = ({ member, index }: { member: Member, index: number 
             <div className="w-8 h-px bg-slate-200" />
             <p className="font-extrabold tracking-[0.15em] uppercase text-[9px] md:text-[10px] mt-2" style={{ color: member.color }}>{member.role}</p>
           </div>
-          
-          <p className="text-[11px] md:text-sm italic leading-relaxed font-medium text-slate-500">
-            "{member.quote}"
-          </p>
         </div>
         
         <div className="flex items-center justify-between pt-3 md:pt-4 border-t border-slate-50">
           <div className="flex gap-2">
-            <a href={member.github} className="p-1.5 md:p-2 bg-slate-50 rounded-full hover:bg-member1 hover:text-white transition-all shadow-sm"><Github className="w-3.5 h-3.5 md:w-4 md:h-4" /></a>
-            <a href={member.linkedin} className="p-1.5 md:p-2 bg-slate-50 rounded-full hover:bg-member1 hover:text-white transition-all shadow-sm"><Linkedin className="w-3.5 h-3.5 md:w-4 md:h-4" /></a>
+            <a href={member.github} target="_BLANK" className="p-1.5 md:p-2 bg-slate-50 rounded-full hover:bg-member1 hover:text-white transition-all shadow-sm"><Github className="w-3.5 h-3.5 md:w-4 md:h-4" /></a>
+            <a href={member.linkedin} target="_BLANK" className="p-1.5 md:p-2 bg-slate-50 rounded-full hover:bg-member1 hover:text-white transition-all shadow-sm"><Linkedin className="w-3.5 h-3.5 md:w-4 md:h-4" /></a>
           </div>
           <a 
-            href={member.portfolio} 
+            href={member.portfolio}  target="_BLANK"
             className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-black uppercase tracking-widest text-member1 hover:gap-2 transition-all"
           >
             Portfolio <ExternalLink className="w-2.5 h-2.5 md:w-3 md:h-3" />
@@ -74,11 +70,12 @@ const Equipe = () => {
       <Hero 
         title="L’Équipe MIC"
         image="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
+        subtitle='Quatre profils complémentaires, passionnés et rigoureux, réunis par une même ambition : concevoir des solutions digitales solides et impactantes.'
       />
 
       <section className="py-16 md:py-24 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-10 md:mb-16 lg:mb-24 max-w-3xl mx-auto space-y-3 md:space-y-6 relative">
+          <div className="text-center mb-10 md:mb-16 lg:mb-24 mx-auto space-y-3 md:space-y-6 relative">
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
@@ -88,8 +85,10 @@ const Equipe = () => {
             </motion.div>
             <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-800 font-outfit uppercase">Nos Experts</h2>
             <p className="text-sm md:text-lg lg:text-xl text-slate-500 font-medium leading-relaxed px-3 sm:px-4">
-              Une complémentarité parfaite pour des projets d'exception. Découvrez les esprits derrière MIC Studio.
-            </p>
+              MIC Studio repose sur une équipe de quatre développeurs aux compétences complémentaires.
+              Nous partageons une exigence commune : travailler avec rigueur, sérieux et engagement pour transformer des idées en solutions concrètes.
+              Notre diversité de profils nous permet d’aborder chaque projet avec recul, créativité et précision technique.
+              </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">

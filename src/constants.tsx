@@ -12,45 +12,41 @@ export const MEMBERS: Member[] = [
   {
     id: 'mateis',
     name: 'Matéis',
-    role: 'Lead Architect',
+    role: 'La boite à idées',
     color: '#746ac8',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop',
-    quote: "Le code est une forme d'art où l'efficacité rencontre l'élégance.",
-    github: 'https://github.com',
-    linkedin: 'https://linkedin.com',
+    github: 'https://github.com/BourletMateis',
+    linkedin: 'https://www.linkedin.com/in/mateis-bourlet/',
     portfolio: '#'
   },
   {
     id: 'mathys',
     name: 'Mathys',
-    role: 'Fullstack Dev',
+    role: 'Le styliste du Front',
     color: '#49b4a7',
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop',
-    quote: "Résoudre des problèmes complexes avec des solutions simples.",
-    github: 'https://github.com',
-    linkedin: 'https://linkedin.com',
+    github: 'https://github.com/zinackes',
+    linkedin: 'https://www.linkedin.com/in/mathys-sclafer-199726250/',
     portfolio: '#'
   },
   {
     id: 'ines',
     name: 'Inès',
-    role: 'UI/UX Designer',
+    role: 'La base de données',
     color: '#4992f1',
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop',
-    quote: "L'utilisateur ne doit pas seulement utiliser le produit, il doit le vivre.",
-    github: 'https://github.com',
-    linkedin: 'https://linkedin.com',
-    portfolio: '#'
+    github: 'https://github.com/djelines',
+    linkedin: 'https://www.linkedin.com/in/in%C3%A8s-c-7067a5343/',
+    portfolio: 'https://inescharfi.micdev.fr/'
   },
   {
     id: 'clement',
     name: 'Clément',
-    role: 'Product Manager',
+    role: 'Le responsable bien‑être',
     color: '#233147',
     image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop',
-    quote: "Innover c'est savoir anticiper les besoins de demain.",
-    github: 'https://github.com',
-    linkedin: 'https://linkedin.com',
+    github: 'https://github.com/Cl3m3nt03',
+    linkedin: 'https://www.linkedin.com/in/cl%C3%A9ment-seurin-le-goffic/',
     portfolio: '#'
   }
 ];

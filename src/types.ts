@@ -5,7 +5,6 @@ export interface Member {
   role: string;
   color: string;
   image: string;
-  quote: string;
   github: string;
   linkedin: string;
   portfolio: string;
