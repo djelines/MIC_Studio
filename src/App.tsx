@@ -1,16 +1,15 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense, lazy, memo } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion, useScroll, useSpring } from 'framer-motion';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Home from './pages/Home';
-import Epopee from './pages/Epopee';
-import Realisations from './pages/Realisations';
-import Equipe from './pages/Equipe';
 
-// Scroll reset component
+const Home = lazy(() => import('./pages/Home'));
+const Epopee = lazy(() => import('./pages/Epopee'));
+const Realisations = lazy(() => import('./pages/Realisations'));
+const Equipe = lazy(() => import('./pages/Equipe'));
+
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -19,7 +18,7 @@ const ScrollToTop = () => {
   return null;
 };
 
-const ScrollProgress = () => {
+const ScrollProgress = memo(() => {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -33,18 +32,26 @@ const ScrollProgress = () => {
       style={{ scaleX }}
     />
   );
-};
+});
+
+const PageLoader = () => (
+  <div className="min-h-[60vh] flex items-center justify-center">
+    <div className="w-8 h-8 border-4 border-member3 border-t-transparent rounded-full animate-spin"></div>
+  </div>
+);
 
 const AnimatedRoutes = () => {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-        <Route path="/epopee" element={<Epopee />} />
-        <Route path="/realisations" element={<Realisations />} />
-        <Route path="/equipe" element={<Equipe />} />
-      </Routes>
+      <Suspense fallback={<PageLoader />}>
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/epopee" element={<Epopee />} />
+          <Route path="/realisations" element={<Realisations />} />
+          <Route path="/equipe" element={<Equipe />} />
+        </Routes>
+      </Suspense>
     </AnimatePresence>
   );
 };

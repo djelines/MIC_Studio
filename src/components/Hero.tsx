@@ -14,8 +14,7 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ title, subtitle, image, primaryCta, secondaryCta }) => {
   return (
-    <section className="relative h-[85vh] w-full flex items-center justify-center overflow-hidden">
-      {/* Background with Overlay */}
+    <section className="relative h-screen -mt-20 w-full flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <motion.div 
           initial={{ scale: 1.1 }}

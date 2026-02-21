@@ -3,13 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ArrowRight, Minus, Pause, Play } from 'lucide-react';
 import { Button } from './button';
 import { Badge } from './Badge';
-import { PROJECTS } from '@/projects';
 import { SectionTitle } from '@/pages/Home';
 import { Tooltip, TooltipContent, TooltipTrigger } from './tooltip';
+import { PROJECTS } from '@/constants';
+import { useNavigate } from 'react-router-dom';
 
 type Direction = 1 | -1;
 
-// Variants for the slide animation
 const slideVariants = {
   enter: (direction: Direction) => ({
     x: direction > 0 ? '100%' : '-100%',
@@ -49,7 +49,6 @@ export const ProjectCarousel: React.FC = () => {
   const [[page, direction], setPage] = useState([0, 0]);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  // Calculate current index safely
   const projectIndex = ((page % PROJECTS.length) + PROJECTS.length) % PROJECTS.length;
   const currentProject = PROJECTS[projectIndex];
 
@@ -57,7 +56,6 @@ export const ProjectCarousel: React.FC = () => {
     setPage([page + newDirection, newDirection]);
   }, [page]);
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') paginate(-1);
@@ -67,7 +65,6 @@ export const ProjectCarousel: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [paginate]);
 
-  // Autoplay functionality
   useEffect(() => {
     if (!isAutoPlaying) return;
     const interval = setInterval(() => {
@@ -76,22 +73,21 @@ export const ProjectCarousel: React.FC = () => {
     return () => clearInterval(interval);
   }, [isAutoPlaying, paginate, page]);
 
+  const navigate = useNavigate();
+
   return (
-    <section className="py-32 bg-white overflow-hidden">
-    <div className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 flex flex-col justify-center min-h-[800px]">
+    <section className="py-16 md:py-24 lg:py-32 bg-white overflow-hidden">
+    <div className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8 lg:py-12 flex flex-col justify-center min-h-[500px] md:min-h-[600px] lg:min-h-[700px]">
       
-      {/* Header with Title and Navigation Arrows */}
-      <div className="flex justify-between items-end mb-8">
-            <div className="space-y-4">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0 mb-6 md:mb-8">
+            <div className="space-y-2 md:space-y-4">
             <SectionTitle colorClass="text-member3">Réalisations Récentes</SectionTitle>
-            <p className="text-slate-500 max-w-xl font-medium">
+            <p className="text-sm md:text-base text-slate-500 max-w-xl font-medium">
                 Un aperçu de nos derniers succès, alliant complexité technique et interface épurée.
             </p>
             </div>
         
-        {/* Navigation Arrows */}
         <div className="flex gap-3">
-           {/* Previous Button */}
            <div className="relative group">
              <Button
                 variant="outline"
@@ -108,7 +104,6 @@ export const ProjectCarousel: React.FC = () => {
               </div>
            </div>
 
-           {/* Next Button */}
            <div className="relative group">
              <Button
                 variant="outline"
@@ -127,8 +122,7 @@ export const ProjectCarousel: React.FC = () => {
            </div>
       </div>
 
-      {/* Main Carousel Area - Fused Card */}
-      <div className="relative h-[500px] md:h-[550px] w-full">
+      <div className="relative h-[400px] sm:h-[450px] md:h-[480px] lg:h-[520px] w-full">
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
           <motion.div
             key={page}
@@ -142,13 +136,12 @@ export const ProjectCarousel: React.FC = () => {
               opacity: { duration: 0.3 },
               scale: { duration: 0.4 }
             }}
-            className="absolute inset-0 flex flex-col md:flex-row w-full h-full rounded-[3rem] overflow-hidden border border-border/60 shadow-2xl bg-card"
+            className="absolute inset-0 flex flex-col md:flex-row w-full h-full rounded-[1.5rem] md:rounded-[2rem] lg:rounded-[2.5rem] xl:rounded-[3rem] overflow-hidden border border-border/60 shadow-2xl bg-card"
           >
             
-            {/* Left Side: Image (60%) */}
             <div className="relative w-full md:w-[60%] h-[45%] md:h-full bg-secondary overflow-hidden group">
               <motion.img
-                src={currentProject.imageUrl}
+                src={currentProject.image}
                 alt={currentProject.title}
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                 initial={{ scale: 1.1 }}
@@ -159,8 +152,7 @@ export const ProjectCarousel: React.FC = () => {
             
             </div>
 
-            {/* Right Side: Content (40%) */}
-            <div className="relative w-full md:w-[40%] h-[55%] md:h-full bg-card/95 backdrop-blur-sm p-8 md:p-12 flex flex-col justify-center border-t md:border-t-0 md:border-l border-border/50">
+            <div className="relative w-full md:w-[40%] h-[55%] md:h-full bg-card/95 backdrop-blur-sm p-5 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center border-t md:border-t-0 md:border-l border-border/50">
               
             <div className="relative z-10">
                 <motion.div
@@ -169,7 +161,7 @@ export const ProjectCarousel: React.FC = () => {
                    custom={0}
                    variants={textVariants}
                 >
-                  <h3 className="text-4xl md:text-5xl font-bold font-display text-member3 mb-6 leading-[0.95]">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-display text-member3 mb-4 md:mb-6 leading-[0.95]">
                     {currentProject.title}
                   </h3>
                 </motion.div>
@@ -179,52 +171,39 @@ export const ProjectCarousel: React.FC = () => {
                   animate="visible"
                   custom={1}
                   variants={textVariants}
-                  className="mb-8"
+                  className="mb-6 md:mb-8"
                 >
-                  <div className="flex items-center gap-2 mb-4">
-                     <Minus className="text-primary w-8 h-px" />
-                     <span className="text-xs font-mono uppercase tracking-wider text-muted-member3">à propos du projet</span>
+                  <div className="flex items-center gap-2 mb-3 md:mb-4">
+                     <Minus className="text-primary w-6 md:w-8 h-px" />
+                     <span className="text-[10px] md:text-xs font-mono uppercase tracking-wider text-muted-member3">à propos du projet</span>
                   </div>
-                  <p className="text-muted-member3 text-lg leading-relaxed">
+                  <p className="text-muted-member3 text-sm md:text-base lg:text-lg leading-relaxed">
                     {currentProject.description}
                   </p>
                 </motion.div>
 
-                {/* Modern Stats Row */}
                 <motion.div 
-                  className="grid grid-cols-2 gap-6 mb-10"
-                  initial="hidden"
-                  animate="visible"
-                  custom={2}
-                  variants={textVariants}
-                >
-                  {currentProject.stats?.map((stat) => (
-                    <div key={stat.label} className="border-l-2 border-border pl-4">
-                      <p className="text-xs font-mono uppercase text-muted-member3 mb-1">{stat.label}</p>
-                      <p className="text-xl font-bold font-display text-member3">{stat.value}</p>
-                    </div>
-                  ))}
-                </motion.div>
-
-                {/* Tags & Action */}
-                <motion.div 
-                  className="flex flex-col gap-6"
+                  className="flex flex-col gap-4 md:gap-6"
                   initial="hidden"
                   animate="visible"
                   custom={3}
                   variants={textVariants}
                 >
-                  <div className="flex flex-wrap gap-2">
-                    {currentProject.tags.map((tag) => (
-                      <span key={tag} className="text-xs font-medium px-3 py-1 rounded-full bg-secondary text-secondary-member3 border border-transparent hover:border-border transition-colors cursor-default">
+                  <div className="flex flex-wrap gap-1.5 md:gap-2">
+                    {currentProject.stack.map((tag) => (
+                      <span key={tag} className="text-[10px] md:text-xs font-medium px-2 md:px-3 py-0.5 md:py-1 rounded-full bg-secondary text-secondary-member3 border border-transparent hover:border-border transition-colors cursor-default">
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  <Button size="lg" className="w-full bg-member3 rounded-2xl h-14 text-base shadow-lg shadow-primary/20 group hover:bg-member1">
+                  <Button size="lg" 
+                  onClick={() => {
+                      navigate(`/realisations#${currentProject.title}`)
+                  }}
+                  className="w-full bg-member3 rounded-xl md:rounded-2xl h-11 md:h-12 lg:h-14 text-sm md:text-base shadow-lg shadow-primary/20 group hover:bg-member1">
                     Voir le projet
-                    <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </motion.div>
               </div>
@@ -235,14 +214,11 @@ export const ProjectCarousel: React.FC = () => {
         </AnimatePresence>
       </div>
       
-      {/* Bottom Controls Area */}
-      <div className="mt-4 w-full flex justify-between items-center px-2">
+      <div className="mt-4 md:mt-6 w-full flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0 px-2">
         
-        {/* Control Pill */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 md:gap-4">
            
-           {/* Pagination */}
-           <div className="flex items-center gap-1 font-mono text-sm select-none">
+           <div className="flex items-center gap-1 font-mono text-xs md:text-sm select-none">
              <span className="text-member3 font-semibold">{String(projectIndex + 1).padStart(2, '0')}</span>
              <span className="text-muted-member3/40 mx-1">/</span>
              <span className="text-muted-member3">{String(PROJECTS.length).padStart(2, '0')}</span>
@@ -250,12 +226,11 @@ export const ProjectCarousel: React.FC = () => {
            
            <div className="w-px h-4 bg-border/60 mx-1"></div>
            
-           {/* Progress Bar */}
-           <div className="w-52 h-1 bg-secondary rounded-full overflow-hidden">
+           <div className="w-40 md:w-48 lg:w-52 h-1 bg-secondary rounded-full overflow-hidden">
               <AnimatePresence mode="wait">
                 {isAutoPlaying ? (
                   <motion.div
-                    key={page} // Resets animation on page change
+                    key={page}
                     initial={{ width: "0%" }}
                     animate={{ width: "100%" }}
                     exit={{ width: "0%", transition: { duration: 0 } }}
@@ -269,13 +244,13 @@ export const ProjectCarousel: React.FC = () => {
            </div>
            
            <Tooltip>
-                <TooltipTrigger>
+                <TooltipTrigger asChild>
                     <button
                         onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-                        className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-secondary text-member3/80 hover:text-member3 transition-colors focus:outline-none"
+                        className="w-7 h-7 md:w-8 md:h-8 rounded-full flex items-center justify-center hover:bg-secondary text-member3/80 hover:text-member3 transition-colors focus:outline-none"
                         aria-label={isAutoPlaying ? "Pause autoplay" : "Start autoplay"}
                     >
-                        {isAutoPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 ml-0.5" />}
+                        {isAutoPlaying ? <Pause className="w-3 h-3 md:w-3.5 md:h-3.5" /> : <Play className="w-3 h-3 md:w-3.5 md:h-3.5 ml-0.5" />}
                     </button>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -286,11 +261,10 @@ export const ProjectCarousel: React.FC = () => {
 
         </div>
 
-        {/* Optional Right Side Link */}
-        <div className="hidden md:block">
-           <a href="#/realisations" className="text-sm font-medium text-muted-member3 hover:text-primary transition-colors flex items-center gap-2 group">
+        <div className="hidden sm:block">
+           <a href="#/realisations" className="text-xs md:text-sm font-medium text-muted-member3 hover:text-primary transition-colors flex items-center gap-2 group">
               Voir tous les projets
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="w-3 h-3 md:w-4 md:h-4 transition-transform group-hover:translate-x-1" />
            </a>
         </div>
       </div>

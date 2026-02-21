@@ -6,10 +6,8 @@ import { Link } from "react-router-dom";
 const FinalCTA = () => {
   return (
     <section className="relative py-24 px-6 bg-white overflow-hidden">
-        {/* Fond en arrière-plan */}
         <GravityStarsBackground className="absolute inset-0 " />
 
-        {/* Contenu au-dessus */}
         <div className="max-w-3xl mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

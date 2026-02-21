@@ -31,7 +31,6 @@ interface CobeProps {
   className?: string
   style?: React.CSSProperties
   locations?: Location[]
-  // Globe configuration settings
   phi?: number
   theta?: number
   mapSamples?: number
@@ -61,7 +60,6 @@ export function Cobe({
     { name: "Tokyo", emoji: "📍" },
     { name: "Buenos Aires", emoji: "📍" },
   ],
-  // Default values based on the original JSX version
   phi = 0,
   theta = 0.2,
   mapSamples = 16000,
@@ -141,10 +139,8 @@ export function Cobe({
 
     for (const location of locationList) {
       if (location.lat && location.long) {
-        // Already has coordinates
         geocodedLocations.push(location)
       } else {
-        // Need to geocode
         const result = await geocodeLocation(location.name)
         if (result) {
           geocodedLocations.push({
@@ -159,7 +155,6 @@ export function Cobe({
     return geocodedLocations
   }, [])
 
-  // Initialize locations on component mount
   useEffect(() => {
     const initializeLocations = async () => {
       if (variant === "rotate-to-location" && locations.length > 0) {
@@ -212,75 +207,62 @@ export function Cobe({
         variant === "auto-rotation" ||
         variant === "scaled"
           ? [
-              // San Francisco, default color
               { location: [37.7595, -122.4367], size: markerSize },
-              // New York, red color
               {
                 location: [40.7128, -74.006],
                 size: markerSize,
                 color: [1, 0, 0],
               },
-              // Tokyo, blue color
               {
                 location: [35.6895, 139.6917],
                 size: markerSize,
                 color: [0, 0.5, 1],
               },
-              // Sydney, green color
               {
                 location: [-33.8688, 151.2093],
                 size: markerSize,
                 color: [0, 1, 0],
               },
-              // Rio de Janeiro, purple color
               {
                 location: [-22.9068, -43.1729],
                 size: markerSize,
                 color: [0.8, 0, 0.8],
               },
-              // Paris, yellow color
               {
                 location: [48.8566, 2.3522],
                 size: markerSize,
                 color: [1, 1, 0],
               },
-              // Porto, orange color
               {
                 location: [41.1579, -8.6291],
                 size: markerSize,
                 color: [1, 0.5, 0],
               },
-              // Athens, pink color
               {
                 location: [37.9838, 23.7275],
                 size: markerSize,
                 color: [1, 0.5, 1],
               },
-              // Rome, brown color
               {
                 location: [41.9028, 12.4964],
                 size: markerSize,
                 color: [0.5, 0.3, 0],
               },
-              // Kathmandu, blue color
               {
                 location: [27.7172, 85.324],
                 size: markerSize,
                 color: [0, 0.5, 1],
               },
-              // Tarbes, green color
               {
                 location: [43.4643, -0.5167],
                 size: markerSize,
                 color: [0, 1, 0],
               },
-              // Bamako, yellow color
               {
                 location: [12.6683, -8.0076],
                 size: markerSize,
                 color: [1, 1, 0],
               },
-              // Djibouti, purple color
               {
                 location: [11.55, 43.1667],
                 size: markerSize,
@@ -331,7 +313,6 @@ export function Cobe({
             currentTheta = currentTheta * 0.92 + focusTheta * 0.08
             break
           case "scaled":
-            // No rotation for scaled variant
             break
         }
 

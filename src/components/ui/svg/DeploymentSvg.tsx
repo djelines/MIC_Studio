@@ -11,34 +11,26 @@ export const DeploymentStatus: React.FC = () => {
         </linearGradient>
       </defs>
 
-      {/* Global Network Base */}
       <g transform="translate(200, 320)">
-         {/* Wireframe Globe - Stronger Strokes */}
          <ellipse cx="0" cy="40" rx="140" ry="40" fill="#f8fafc" stroke="#94a3b8" strokeWidth="1.5" />
          <path d="M -140 40 A 140 40 0 0 1 140 40" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="4 4" fill="none" />
          <ellipse cx="0" cy="40" rx="80" ry="20" fill="none" stroke="#94a3b8" strokeWidth="1.5" strokeDasharray="2 4" />
          <line x1="0" y1="0" x2="0" y2="80" stroke="#94a3b8" strokeWidth="1.5" />
          
-         {/* Network Points */}
          <circle cx="-60" cy="50" r="2" fill="#475569" />
          <circle cx="60" cy="30" r="2" fill="#475569" />
          <circle cx="0" cy="60" r="2" fill="#475569" />
          
-         {/* Vertical Connection Lines */}
          <line x1="-60" y1="50" x2="-60" y2="-120" stroke="#cbd5e1" strokeDasharray="2 2" strokeWidth="1.5" />
          <line x1="60" y1="30" x2="60" y2="-120" stroke="#cbd5e1" strokeDasharray="2 2" strokeWidth="1.5" />
       </g>
 
-      {/* Connection / Matter Transfer Beam (Under Cloud) */}
       <g transform="translate(200, 140)">
-         {/* Guide Line */}
          <line x1="0" y1="0" x2="0" y2="180" stroke="#cbd5e1" strokeWidth="1.5" />
          
-         {/* The Illuminated Beam - Visible on hover */}
          <path d="M -15 0 L 15 0 L 5 180 L -5 180 Z" fill="url(#matterTransfer)" 
                className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out" />
          
-         {/* Particles inside beam */}
          <circle cx="0" cy="40" r="2" fill="#3ECF8E" className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
              <animate attributeName="cy" from="0" to="180" dur="1s" repeatCount="indefinite" />
          </circle>
@@ -47,9 +39,7 @@ export const DeploymentStatus: React.FC = () => {
          </circle>
       </g>
 
-      {/* Cloud Infrastructure Group - Wireframe */}
       <g transform="translate(130, 80)">
-         {/* Main Cloud Shape - Darker Outline */}
          <path d="M 25 50 
                   C 10 50, 0 40, 0 30 
                   C 0 15, 15 5, 30 10 
@@ -60,14 +50,11 @@ export const DeploymentStatus: React.FC = () => {
                   Z" 
                fill="#ffffff" stroke="#475569" strokeWidth="2" />
          
-         {/* Cloud Detail Lines */}
          <path d="M 30 35 H 100" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="2 4" fill="none" />
          
-         {/* Small Satellite Cloud */}
          <circle cx="140" cy="20" r="8" fill="#ffffff" stroke="#64748b" strokeWidth="1.5" />
       </g>
 
-      {/* Server Rack */}
       <g transform="translate(260, 140)">
          <rect x="0" y="0" width="30" height="50" rx="2" fill="#ffffff" stroke="#475569" strokeWidth="2" />
          <line x1="5" y1="12" x2="25" y2="12" stroke="#94a3b8" />
@@ -76,7 +63,6 @@ export const DeploymentStatus: React.FC = () => {
          <circle cx="25" cy="6" r="1.5" fill="#3ECF8E" />
       </g>
 
-      {/* Uptime Widget */}
       <g transform="translate(40, 240)">
          <rect x="0" y="0" width="100" height="40" rx="4" fill="#ffffff" stroke="#64748b" strokeWidth="1.5" />
          <text x="10" y="13" className="fill-slate-500 text-[8px] font-mono font-bold">UPTIME</text>
@@ -86,7 +72,6 @@ export const DeploymentStatus: React.FC = () => {
          </circle>
       </g>
 
-      {/* Number 04 Watermark - Visible */}
       <text x="120" y="150" textAnchor="end" className="fill-slate-500 text-8xl font-bold font-mono opacity-80">04</text>
 
     </svg>

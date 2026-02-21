@@ -5,12 +5,10 @@ import { Mail, Phone, Linkedin, Github, Globe, MapPin } from 'lucide-react';
 const Footer: React.FC = () => {
   return (
     <footer className="bg-[#0f172a] text-slate-400 py-16 px-6 relative overflow-hidden">
-      {/* Visual background element */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-700 to-transparent"></div>
       
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          {/* Brand Info */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
               <img src='/static/LogoMIC.webp' alt='logo' className='w-12 h-12'/>
@@ -25,7 +23,6 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Sitemap */}
           <div className="space-y-6">
             <h4 className="text-white font-black text-xs uppercase tracking-[0.2em]">Sitemap</h4>
             <ul className="space-y-3 text-sm font-bold">
@@ -36,7 +33,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Contact Details */}
           <div className="space-y-6">
             <h4 className="text-white font-black text-xs uppercase tracking-[0.2em]">Contact</h4>
             <ul className="space-y-4 text-sm font-bold">
@@ -55,7 +51,6 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Quote/CTA */}
           <div className="space-y-6">
             <h4 className="text-white font-black text-xs uppercase tracking-[0.2em]">Vision</h4>
             <p className="text-xs italic leading-relaxed font-medium">
