@@ -1,7 +1,7 @@
 // ============================================
 // IMPORTS
 // ============================================
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { developmentSteps, faqs, VALUES } from "../constants";
 import {
@@ -22,6 +22,7 @@ import { DeploymentStatus } from "@/components/ui/svg/DeploymentSvg";
 import { ProjectCarousel } from "@/components/ui/ProjectsCarousel"; // Utilisé ligne 225 - Carrousel des projets
 import WorldMap from "@/components/ui/world-map"; // Utilisé ligne 59 - Carte du monde en arrière-plan du hero
 import FinalCTA from "@/components/ui/FinalCTA"; // Utilisé ligne 302 - Call-to-action final
+import { Cobe } from "@/components/ui/cobe-globe";
 
 // ============================================
 // COMPOSANT : SectionTitle
@@ -63,6 +64,23 @@ const Home = () => {
     member4: "#233147",
   };
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768); // 768px correspond au breakpoint 'md' de Tailwind
+    };
+
+    // Vérification initiale au chargement
+    checkScreenSize();
+
+    // Écouteur d'événement si l'utilisateur redimensionne sa fenêtre
+    window.addEventListener("resize", checkScreenSize);
+    
+    // Nettoyage de l'écouteur
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -74,39 +92,44 @@ const Home = () => {
           SECTION 1 : HERO / BANNIÈRE PRINCIPALE
           Section pleine écran avec carte du monde en arrière-plan
           ============================================ */}
-      <section className="relative h-screen -mt-20 w-full flex items-center justify-center overflow-hidden flex-col [box-shadow:0_60px_90px_-15px_rgba(0,0,0,0.5)]">
+      <section className={`relative h-screen bg-black -mt-20 w-full flex items-center justify-center overflow-hidden flex-col [box-shadow:0_50px_90px_-15px_rgba(0,0,0,0.5)]`}>
         {/* Composant WorldMap : Carte du monde interactive avec points de connexion */}
+        
+
+        {isMobile ? 
+          <Cobe className="!absolute"/>
+        : 
         <WorldMap
-          dots={[
-            {
-              start: { lat: 35.6062, lng: -122.3321 },
-              end: { lat: 48.5017, lng: -70.5673 },
-            },
-            {
-              start: { lat: 48.5017, lng: -70.5673 },
-              end: { lat: -30.7975, lng: -40.8919 },
-            },
-            {
-              start: { lat: 36.8566, lng: 2.3522 },
-              end: { lat: 64.1695, lng: 27.9354 },
-            },
-            {
-              start: { lat: 36.8566, lng: 2.3522 },
-              end: { lat: 2.2854, lng: 50.531 },
-            },
-            {
-              start: { lat: 2.2854, lng: 50.531 },
-              end: { lat: 50.7558, lng: 127.6173 },
-            },
-            {
-              start: { lat: 22.6762, lng: 139.6503 },
-              end: { lat: -50.8688, lng: 151.2093 },
-            },
-          ]}
-        />
+        dots={[
+          {
+            start: { lat: 35.6062, lng: -122.3321 },
+            end: { lat: 48.5017, lng: -70.5673 },
+          },
+          {
+            start: { lat: 48.5017, lng: -70.5673 },
+            end: { lat: -30.7975, lng: -40.8919 },
+          },
+          {
+            start: { lat: 36.8566, lng: 2.3522 },
+            end: { lat: 64.1695, lng: 27.9354 },
+          },
+          {
+            start: { lat: 36.8566, lng: 2.3522 },
+            end: { lat: 2.2854, lng: 50.531 },
+          },
+          {
+            start: { lat: 2.2854, lng: 50.531 },
+            end: { lat: 50.7558, lng: 127.6173 },
+          },
+          {
+            start: { lat: 22.6762, lng: 139.6503 },
+            end: { lat: -50.8688, lng: 151.2093 },
+          },
+        ]}
+      />}
 
         {/* Contenu du hero : Titre, description et boutons d'action */}
-        <div className="w-full h-full flex mt-50">
+        <div className={`w-full h-full flex ${isMobile ? "mt-70" : "mt-50"}`}>
           <div className="relative z-10 max-w-5xl mx-auto px-6 -mt-10 text-center pointer-events-auto">
             {/* Titre principal animé */}
             <motion.h1
