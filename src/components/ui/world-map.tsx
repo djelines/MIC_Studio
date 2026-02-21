@@ -41,17 +41,17 @@ export default function WorldMap({
   }, [dots, projectPoint]);
 
   return (
-    <div className="w-full h-full aspect-[2/1] dark:bg-black absolute font-sans">
+    <div className=" w-full h-full aspect-[2/1] bg-black absolute font-sans">
       <img
         src="/static/worldmap.svg"
-        className="h-full w-full pointer-events-none select-none"
+        className="hidden md:block md:block h-full w-full pointer-events-none select-none"
         alt="world map"
         draggable={false}
       />
       <svg
         ref={svgRef}
         viewBox="0 0 800 400"
-        className="w-full h-full absolute inset-0 pointer-events-none select-none"
+        className="hidden md:block w-full h-full absolute inset-0 pointer-events-none select-none"
       >
         <defs>
           <linearGradient id="path-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
