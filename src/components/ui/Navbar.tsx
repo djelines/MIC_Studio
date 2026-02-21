@@ -1,33 +1,20 @@
-// ============================================
-// IMPORTS
-// ============================================
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { LogoMIC } from '../../constants';
 
-// ============================================
-// COMPOSANT : Navbar
-// Barre de navigation principale du site
-// Gère le menu mobile et le style selon la page active
-// ============================================
 const Navbar = () => {
-  // État pour gérer l'ouverture/fermeture du menu mobile
   const [isOpen, setIsOpen] = useState(false);
-  // État pour détecter si la page a été scrollée
   const [scrolled, setScrolled] = useState(false);
-  // Récupération de la route actuelle pour le style conditionnel
   const location = useLocation();
 
-  // Effet pour détecter le scroll et changer le style de la navbar
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Liste des liens de navigation
   const navLinks = [
     { name: 'Accueil', path: '/' },
     { name: 'Notre Épopée', path: '/epopee' },
@@ -35,7 +22,6 @@ const Navbar = () => {
     { name: "L'Équipe", path: '/equipe' },
   ];
 
-  // Fonction pour déterminer le style de la navbar selon la page active
   const getNavbarStyle = (path: string) => {
     switch (path) {
       case '/':
@@ -61,13 +47,11 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-300 ${scrolled ? 'py-2' : 'py-3'}`}
     >
       <div className="max-w-7xl mx-auto px-4">
-        {/* Conteneur principal de la navbar avec style conditionnel */}
         <div 
           className={`relative flex ${currentNavStyle} items-center justify-between rounded-full px-6 py-2 transition-all duration-500 border border-transparent ${
             scrolled ? `shadow-xl glass !text-black` : ''
           }`}
         >
-          {/* Logo et nom du studio */}
           <Link to="/" className="flex items-center gap-3 group">
             <LogoMIC className="w-10 h-10 transition-transform group-hover:scale-110" />
             <span className="text-xl font-extrabold tracking-tighter text-inherit">
@@ -75,7 +59,6 @@ const Navbar = () => {
             </span>
           </Link>
 
-          {/* Menu desktop : Liens de navigation avec indicateur de page active */}
           <div className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
               <Link 
@@ -88,7 +71,6 @@ const Navbar = () => {
                 }`}
               >
                 {link.name}
-                {/* Ligne de soulignement animée pour la page active */}
                 {location.pathname === link.path && (
                   <motion.div 
                     layoutId="navUnderline"
@@ -99,7 +81,6 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Bouton menu mobile */}
           <div className="md:hidden flex items-center">
             <button onClick={() => setIsOpen(!isOpen)} className="text-inherit opacity-80 hover:opacity-100">
               {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
@@ -108,7 +89,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Menu mobile : Panneau déroulant avec animation */}
       <AnimatePresence>
         {isOpen && (
           <motion.div

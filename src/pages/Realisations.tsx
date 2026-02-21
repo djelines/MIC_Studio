@@ -1,15 +1,10 @@
-// ============================================
-// IMPORTS
-// ============================================
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PROJECTS } from '../constants';
 import { ExternalLink, CheckCircle, Globe, Code2, Sparkles, ChevronDown, Layers, MonitorSmartphone } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
+import Hero from '@/components/ui/Hero';
 
-// ============================================
-// COMPOSANT PRINCIPAL : Realisations
-// ============================================
 const Realisations = () => {
   const { hash } = useLocation();
   const [selectedImages, setSelectedImages] = useState<Record<string, number>>({});
@@ -31,112 +26,77 @@ const Realisations = () => {
       exit={{ opacity: 0 }}
       className="bg-lemonade-bg"
     >
-      {/* ============================================
-          SECTION 1 : HERO / BANNIÈRE PRINCIPALE
-          ============================================ */}
-<section className="relative h-screen -mt-20 w-full flex items-center justify-center overflow-hidden flex-col bg-[#0a0f1c] [box-shadow:0_50px_90px_-15px_rgba(0,0,0,0.5)]">
-        
-        {/* --- 1. LUMIÈRES ET GRILLE (Optimisé Safari) --- */}
-        <div className="absolute inset-0 z-0 opacity-40">
-           <motion.div
-             animate={{ rotate: 360, scale: [1, 1.2, 1] }}
-             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-             className="absolute -top-[20%] -left-[10%] w-[60%] h-[80%] bg-gradient-to-br from-member1/30 via-transparent to-transparent blur-[100px] rounded-full pointer-events-none transform-gpu will-change-transform"
-           />
-           <motion.div
-             animate={{ rotate: -360, scale: [1, 1.3, 1] }}
-             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-             className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[80%] bg-gradient-to-tl from-member3/30 via-transparent to-transparent blur-[120px] rounded-full pointer-events-none transform-gpu will-change-transform"
-           />
-        </div>
-        <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
-
-        {/* --- 2. BADGES FLOTTANTS (Décoration grand écran) --- */}
-        <motion.div 
-          animate={{ y: [0, -10, 0] }}
-          transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          className="hidden md:flex absolute left-[8%] top-[30%] z-10 items-center gap-3 px-4 py-2 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-xl"
-        >
-          <div className="p-2 bg-member1/20 rounded-full"><Code2 className="w-5 h-5 text-member1" /></div>
-          <div className="text-left">
-            <p className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Expertise</p>
-            <p className="text-sm font-black text-white">Code & Design</p>
-          </div>
-        </motion.div>
-
-        <motion.div 
-          animate={{ y: [0, 15, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="hidden md:flex absolute right-[8%] bottom-[35%] z-10 items-center gap-3 px-4 py-2 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md shadow-xl"
-        >
-          <div className="p-2 bg-member3/20 rounded-full"><MonitorSmartphone className="w-5 h-5 text-member3" /></div>
-          <div className="text-left">
-            <p className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Expérience</p>
-            <p className="text-sm font-black text-white">Multi-plateformes</p>
-          </div>
-        </motion.div>
-
-        {/* --- 3. CONTENU CENTRAL --- */}
-        <div className="w-full h-full flex items-center justify-center mt-10 md:mt-0">
-          <div className="relative z-20 max-w-4xl md:max-w-5xl mx-auto px-4 sm:px-6 text-center pointer-events-none flex flex-col items-center">
-            
-            {/* Pilule d'introduction */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-6 shadow-lg pointer-events-auto"
-            >
-              <Layers className="w-4 h-4 text-member1" />
-              <span className="text-xs font-bold text-white/90 uppercase tracking-widest">Portfolio</span>
-            </motion.div>
-
-            {/* Titre principal */}
-            <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]"
+      {/* Hero */}
+      <Hero
+        className="bg-[#0a0f1c]"
+        background={
+          <>
+            <div className="absolute inset-0 z-0 opacity-40">
+              <motion.div
+                animate={{ rotate: 360, scale: [1, 1.2, 1] }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute -top-[20%] -left-[10%] w-[60%] h-[80%] bg-gradient-to-br from-member1/30 via-transparent to-transparent blur-[100px] rounded-full pointer-events-none transform-gpu will-change-transform"
+              />
+              <motion.div
+                animate={{ rotate: -360, scale: [1, 1.3, 1] }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[80%] bg-gradient-to-tl from-member3/30 via-transparent to-transparent blur-[120px] rounded-full pointer-events-none transform-gpu will-change-transform"
+              />
+            </div>
+            <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
+          </>
+        }
+        sideBadges={[
+          {
+            icon: Code2,
+            label: 'Expertise',
+            text: 'Code & Design',
+            color: 'member1',
+            position: 'left',
+            top: 'top-[30%]',
+            delay: 0,
+          },
+          {
+            icon: MonitorSmartphone,
+            label: 'Expérience',
+            text: 'Multi-plateformes',
+            color: 'member3',
+            position: 'right',
+            top: 'bottom-[35%]',
+            delay: 1,
+          },
+        ]}
+        topBadge={{
+          icon: Layers,
+          text: 'Portfolio',
+          color: 'member1',
+        }}
+        title="Nos Réalisations"
+        description="Explorez nos derniers projets. Des solutions web innovantes, performantes et conçues sur-mesure pour répondre aux défis de demain."
+        scrollIndicator={
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="flex flex-col items-center gap-2 opacity-60 hover:opacity-100 transition-opacity cursor-pointer pointer-events-auto"
+            onClick={() => window.scrollBy({ top: window.innerHeight - 100, behavior: 'smooth' })}
           >
-            Nos Réalisations
-          </motion.h1>
-            
-
-            {/* Description / Sous-titre */}
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-center text-base sm:text-lg md:text-xl text-blue-100/60 mb-10 max-w-2xl mx-auto leading-relaxed px-4 font-medium pointer-events-auto"
-            >
-              Explorez nos derniers projets. Des solutions web innovantes, performantes et conçues sur-mesure pour répondre aux défis de demain.
-            </motion.p>
-          </div>
-        </div>
-
-        {/* --- 4. INDICATEUR DE SCROLL --- */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="absolute bottom-10 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20 opacity-60 hover:opacity-100 transition-opacity cursor-pointer pointer-events-auto"
-          onClick={() => window.scrollBy({ top: window.innerHeight - 100, behavior: 'smooth' })}
-        >
-          <span className="text-[10px] uppercase tracking-widest text-white font-bold">Explorer</span>
-          <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-            <ChevronDown className="w-5 h-5 md:w-6 md:h-6 text-white" />
+            <span className="text-[10px] uppercase tracking-widest text-white font-bold">Explorer</span>
+            <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+              <ChevronDown className="w-5 h-5 md:w-6 md:h-6 text-white" />
+            </motion.div>
           </motion.div>
-        </motion.div>
+        }
+        bottomEffects={
+          <>
+            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-member3 to-transparent opacity-60 z-20" />
+            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-1/2 h-8 bg-member3/40 blur-2xl rounded-full z-20 pointer-events-none transform-gpu" />
+          </>
+        }
+        contentClassName="mt-10 md:mt-0"
+      />
 
-        {/* --- 5. HORIZON LUMINEUX EN BAS --- */}
-        <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-member3 to-transparent opacity-60 z-20" />
-        <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-1/2 h-8 bg-member3/40 blur-2xl rounded-full z-20 pointer-events-none transform-gpu" />
-        
-      </section>
-
-      {/* ============================================
-          SECTION 2 : LISTE DES PROJETS
-          ============================================ */}
+      {/* Liste des projets */}
       <section className="py-12 md:py-24 lg:py-32 space-y-12 md:space-y-24 lg:space-y-32">
         {PROJECTS.map((proj, idx) => {
           const allImages = [
@@ -156,14 +116,12 @@ const Realisations = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              // OPTIMISATION SAFARI : Remplacement de shadow-2xl par shadow-xl pour alléger le rendu
               className="relative p-1 md:p-1.5 rounded-[1.25rem] md:rounded-[2rem] lg:rounded-[2.5rem] bg-white border border-slate-300 shadow-xl"
             >
               <div className="bg-white rounded-[1.25rem] md:rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden p-4 md:p-5 lg:p-6">
                 <div className={`flex flex-col lg:items-center gap-5 md:gap-8 lg:gap-10 ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                   
                   <div className="flex-1 group relative">
-                    {/* OPTIMISATION SAFARI : blur-2xl au lieu de blur-3xl, et transform-gpu */}
                     <div className="absolute inset-0 bg-member1/10 blur-2xl opacity-0 group-hover:opacity-30 transition-opacity pointer-events-none transform-gpu" />
                     
                     <div className="relative rounded-[1rem] md:rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden shadow-lg border border-slate-100 aspect-video lg:aspect-[4/3] mb-3 z-10">
@@ -176,7 +134,6 @@ const Realisations = () => {
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
                           transition={{ duration: 0.3 }}
-                          // OPTIMISATION SAFARI : transform-gpu sur l'image pour un fondu fluide
                           className="w-full h-full object-cover transform-gpu"
                         />
                       </AnimatePresence>
@@ -218,12 +175,12 @@ const Realisations = () => {
                     </div>
 
                     <div className="grid grid-cols-2 gap-3 md:gap-4">
-                      {/* OPTIMISATION SAFARI : Retrait de backdrop-blur-sm, augmentation opacité du bg */}
                       <motion.div 
                         whileHover={{ y: -3 }}
                         className="p-4 md:p-5 lg:p-6 rounded-xl md:rounded-2xl bg-blue-50/80 shadow-sm"
                       >
-                        <h4 className="font-bold text-xs sm:text-sm md:text-base lg:text-lg flex items-center gap-2 mb-2 md:mb-3 text-blue-600"><Code2 className="w-4 h-4 md:w-5 md:h-5" /> Stack Technique</h4>
+                        <h4 className="font-bold text-xs sm:text-sm md:text-base lg:text-lg flex items-center gap-2 mb-2 md:mb-3 text-blue-600">
+                        <Code2 className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" /> Stack Technique</h4>
                         <div className="flex flex-wrap gap-1.5 md:gap-2">
                           {proj.stack.map(s => (
                             <span key={s} className="px-2 md:px-3 py-0.5 md:py-1 bg-white/90 border border-blue-100 text-blue-700 rounded-lg text-[9px] md:text-xs font-bold shadow-sm">{s}</span>
@@ -231,12 +188,12 @@ const Realisations = () => {
                         </div>
                       </motion.div>
 
-                      {/* OPTIMISATION SAFARI : Retrait de backdrop-blur-sm, augmentation opacité du bg */}
                       <motion.div 
                         whileHover={{ y: -3 }}
                         className="p-4 md:p-5 lg:p-6 rounded-xl md:rounded-2xl bg-emerald-50/80 shadow-sm"
                       >
-                        <h4 className="font-bold text-xs sm:text-sm md:text-base lg:text-lg flex items-center gap-2 mb-2 md:mb-3 text-emerald-600"><Sparkles className="w-4 h-4 md:w-5 md:h-5" /> Fonctionnalités</h4>
+                        <h4 className="font-bold text-xs sm:text-sm md:text-base lg:text-lg flex items-center gap-2 mb-2 md:mb-3 text-emerald-600">
+                          <Sparkles className="w-3 h-3 md:w-5 md:h-5 flex-shrink-0" /> Fonctionnalités</h4>
                         <ul className="space-y-1.5 md:space-y-2">
                           {proj.features.map(f => (
                             <li key={f} className="flex items-center gap-2 text-[11px] sm:text-xs md:text-sm lg:text-base text-slate-600 font-medium">
@@ -260,10 +217,8 @@ const Realisations = () => {
           );
         })}
 
-        {/* ============================================
-            SECTION 3 : SECTION "À SUIVRE"
-            ============================================ */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 md:py-20 lg:py-24">
+        {/* Section "À Suivre" */}
+        <div className="max-w-7xl mx-auto px-6 md:px-4 sm:px-6 py-14 md:py-20 lg:py-24">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}

@@ -1,6 +1,3 @@
-// ============================================
-// IMPORTS
-// ============================================
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, ArrowRight, Minus, Pause, Play } from 'lucide-react';
@@ -11,12 +8,8 @@ import { Tooltip, TooltipContent, TooltipTrigger } from './tooltip';
 import { PROJECTS } from '@/constants';
 import { useNavigate } from 'react-router-dom';
 
-// ============================================
-// TYPES ET VARIABLES
-// ============================================
 type Direction = 1 | -1;
 
-// Variantes d'animation pour les slides du carrousel
 const slideVariants = {
   enter: (direction: Direction) => ({
     x: direction > 0 ? '100%' : '-100%',
@@ -37,7 +30,6 @@ const slideVariants = {
   }),
 };
 
-// Variantes d'animation pour le texte (apparition progressive)
 const textVariants = {
   hidden: { opacity: 0, x: 20 },
   visible: (i: number) => ({
@@ -51,30 +43,19 @@ const textVariants = {
   }),
 };
 
-// Durée de l'autoplay en millisecondes
 const AUTOPLAY_DURATION = 11500;
 
-// ============================================
-// COMPOSANT : ProjectCarousel
-// Carrousel interactif présentant les projets récents
-// Avec navigation clavier, autoplay et contrôles manuels
-// ============================================
 export const ProjectCarousel: React.FC = () => {
-  // État pour la page actuelle et la direction de navigation
   const [[page, direction], setPage] = useState([0, 0]);
-  // État pour activer/désactiver l'autoplay
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  // Calcul de l'index du projet actuel (gestion du modulo pour boucle infinie)
   const projectIndex = ((page % PROJECTS.length) + PROJECTS.length) % PROJECTS.length;
   const currentProject = PROJECTS[projectIndex];
 
-  // Fonction pour naviguer entre les projets
   const paginate = useCallback((newDirection: Direction) => {
     setPage([page + newDirection, newDirection]);
   }, [page]);
 
-  // Effet pour gérer la navigation au clavier (flèches gauche/droite)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') paginate(-1);
@@ -84,7 +65,6 @@ export const ProjectCarousel: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [paginate]);
 
-  // Effet pour l'autoplay : changement automatique de projet
   useEffect(() => {
     if (!isAutoPlaying) return;
     const interval = setInterval(() => {
@@ -99,9 +79,7 @@ export const ProjectCarousel: React.FC = () => {
     <section className="hidden md:block py-16 md:py-24 lg:py-32 bg-white overflow-hidden">
     <div className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8 lg:py-12 flex flex-col justify-center min-h-[500px] md:min-h-[600px] lg:min-h-[700px]">
       
-      {/* En-tête : Titre et contrôles de navigation */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4 sm:gap-0 mb-6 md:mb-8">
-            {/* Titre et description */}
             <div className="space-y-2 md:space-y-4">
             <SectionTitle colorClass="text-member3">Réalisations Récentes</SectionTitle>
             <p className="text-sm md:text-base text-slate-500 max-w-xl font-medium">
@@ -109,7 +87,6 @@ export const ProjectCarousel: React.FC = () => {
             </p>
             </div>
         
-        {/* Boutons de navigation : Précédent et Suivant */}
         <div className="flex gap-3">
            <div className="relative group">
              <Button
@@ -145,10 +122,8 @@ export const ProjectCarousel: React.FC = () => {
            </div>
       </div>
 
-      {/* Zone du carrousel : Conteneur pour les slides animés */}
       <div className="relative h-[400px] sm:h-[450px] md:h-[480px] lg:h-[520px] w-full">
         <AnimatePresence initial={false} custom={direction} mode="popLayout">
-          {/* Slide actuel avec animation de transition */}
           <motion.div
             key={page}
             custom={direction}
@@ -164,7 +139,6 @@ export const ProjectCarousel: React.FC = () => {
             className="absolute inset-0 flex flex-col md:flex-row w-full h-full rounded-[1.5rem] md:rounded-[2rem] lg:rounded-[2.5rem] xl:rounded-[3rem] overflow-hidden border border-border/60 shadow-2xl bg-card"
           >
             
-            {/* Colonne gauche : Image du projet avec effet de zoom au survol */}
             <div className="relative w-full md:w-[60%] h-[45%] md:h-full bg-secondary overflow-hidden group">
               <motion.img
                 src={currentProject.image}
@@ -174,12 +148,10 @@ export const ProjectCarousel: React.FC = () => {
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.8 }}
               />
-              {/* Overlay dégradé pour améliorer la lisibilité */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-black/10 transition-colors duration-500" />
             
             </div>
 
-            {/* Colonne droite : Informations du projet */}
             <div className="relative w-full md:w-[40%] h-[55%] md:h-full bg-card/95 backdrop-blur-sm p-5 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center border-t md:border-t-0 md:border-l border-border/50">
               
             <div className="relative z-10">
@@ -242,13 +214,9 @@ export const ProjectCarousel: React.FC = () => {
         </AnimatePresence>
       </div>
       
-      {/* Footer : Indicateurs et contrôles */}
       <div className="mt-4 md:mt-6 w-full flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0 px-2">
         
-        {/* Groupe gauche : Numéro du projet, barre de progression et bouton play/pause */}
         <div className="flex items-center gap-3 md:gap-4">
-           
-           {/* Indicateur de position : "01 / 03" */}
            <div className="flex items-center gap-1 font-mono text-xs md:text-sm select-none">
              <span className="text-member3 font-semibold">{String(projectIndex + 1).padStart(2, '0')}</span>
              <span className="text-muted-member3/40 mx-1">/</span>
@@ -257,7 +225,6 @@ export const ProjectCarousel: React.FC = () => {
            
            <div className="w-px h-4 bg-border/60 mx-1"></div>
            
-           {/* Barre de progression de l'autoplay */}
            <div className="w-40 md:w-48 lg:w-52 h-1 bg-secondary rounded-full overflow-hidden">
               <AnimatePresence mode="wait">
                 {isAutoPlaying ? (

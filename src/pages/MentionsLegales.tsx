@@ -1,38 +1,22 @@
-// ============================================
-// IMPORTS
-// ============================================
 import React from "react";
 
-// ============================================
-// COMPOSANT PRINCIPAL : MentionsLegales
-// Page affichant les mentions légales du site
-// ============================================
 const MentionsLegales = () => {
   return (
     <div className="bg-white min-h-screen">
-      {/* ============================================
-          SECTION 1 : HERO / EN-TÊTE
-          Bannière simple avec titre
-          ============================================ */}
+      {/* En-tête */}
       <div className="border-b border-slate-200 bg-[#233147] text-white">
         <div className="max-w-5xl mx-auto px-6 py-20">
           <h1 className="text-3xl md:text-4xl font-semibold tracking-tight">
             Mentions légales
           </h1>
-          {/* Barre de soulignement décorative */}
           <div className="w-16 h-[3px] mt-6 bg-[#49b4a7]" />
         </div>
       </div>
 
-      {/* ============================================
-          SECTION 2 : CONTENU DES MENTIONS LÉGALES
-          Informations légales organisées par sections
-          ============================================ */}
+      {/* Contenu */}
       <section className="py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-6 text-[#233147]">
           <div className="space-y-12 text-sm md:text-base leading-relaxed">
-
-            {/* Section : Informations sur l'éditeur */}
             <div>
               <h2 className="font-semibold uppercase tracking-wide mb-4 text-[#746ac8]">
                 Éditeur du site
@@ -45,7 +29,6 @@ const MentionsLegales = () => {
               </p>
             </div>
 
-            {/* Section : Informations sur l'hébergement */}
             <div>
               <h2 className="font-semibold uppercase tracking-wide mb-4 text-[#746ac8]">
                 Hébergement
@@ -55,7 +38,6 @@ const MentionsLegales = () => {
               </p>
             </div>
 
-            {/* Section : Propriété intellectuelle */}
             <div>
               <h2 className="font-semibold uppercase tracking-wide mb-4 text-[#746ac8]">
                 Propriété intellectuelle
@@ -73,7 +55,6 @@ const MentionsLegales = () => {
               </p>
             </div>
 
-            {/* Section : Technologies utilisées */}
             <div>
               <h2 className="font-semibold uppercase tracking-wide mb-4 text-[#746ac8]">
                 Technologies utilisées

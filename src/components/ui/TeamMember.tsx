@@ -47,11 +47,6 @@ export const TeamMember = ({ member, index }: { member: Member, index: number })
               <div className="w-8 h-px bg-slate-200" />
               <p className="font-extrabold tracking-[0.15em] uppercase text-[9px] md:text-[10px] mt-2" style={{ color: member.color }}>{member.role}</p>
             </div>
-            
-            {/* Citation du membre */}
-            <p className="text-[11px] md:text-sm italic leading-relaxed font-medium text-slate-500">
-              "{member.quote}"
-            </p>
           </div>
           
           {/* Footer : Liens sociaux et portfolio */}
