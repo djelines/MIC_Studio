@@ -173,7 +173,7 @@ const Realisations = () => {
                     </div>
 
                     <div className="pt-4 md:pt-6 border-t border-slate-100 flex flex-wrap gap-3 md:gap-4">
-                      <a href={proj.link} className="inline-flex items-center gap-2 px-5 md:px-8 lg:px-10 py-2 md:py-3 lg:py-3.5 bg-member1 text-white font-black text-xs md:text-sm rounded-full hover:shadow-2xl hover:scale-105 transition-all shadow-lg">
+                      <a href={proj.link} target="_BLANK" className="inline-flex items-center gap-2 px-5 md:px-8 lg:px-10 py-2 md:py-3 lg:py-3.5 bg-member1 text-white font-black text-xs md:text-sm rounded-full hover:shadow-2xl hover:scale-105 transition-all shadow-lg">
                         Visiter la plateforme <ExternalLink className="w-3.5 h-3.5 md:w-4 md:h-4" />
                       </a>
                     </div>

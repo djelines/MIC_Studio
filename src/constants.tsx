@@ -81,33 +81,48 @@ export const VALUES = [
 export const PROJECTS: Project[] = [
   {
     id: 'makeitcode',
-    title: 'MakeItCode',
-    summary: 'Plateforme éducative pour apprendre le développement.',
-    description: 'Un environnement immersif pour les futurs développeurs, intégrant des défis interactifs et un suivi personnalisé. Une véritable révolution dans l\'apprentissage du code.',
+    title: 'MakeItCode (MIC)',
+    summary: "Apprends le développement en t'amusant.",
+    description: "Application Android gamifiée pour apprendre le code à travers des projets concrets et des mini-jeux interactifs, avec suivi de progression et récompenses motivantes.",
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
-    stack: ['Next.js', 'PostgreSQL', 'Socket.io'],
-    features: ['Live Coding', 'Mentorat', 'Défis Gamifiés'],
+    stack: ['Dart', 'Flutter', 'Firebase', 'Riverpod'],
+    features: [
+      'Mini-jeux',
+      'Progression',
+      'IDE intégré',
+      'Profil utilisateur'
+    ],
     link: '#'
   },
   {
     id: 'banquerepublic',
     title: 'Banque Republic',
     summary: 'Fintech moderne sécurisée.',
-    description: 'Refonte complète de l\'expérience bancaire numérique avec une sécurité de pointe et une interface intuitive. Simplifier la finance pour tous.',
+    description: "Application bancaire moderne offrant une gestion complète des comptes, des transactions et des bénéficiaires avec une interface intuitive et sécurisée.",
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop',
-    stack: ['React', 'Node.js', 'AWS', 'Web3'],
-    features: ['Gestion de portefeuille', 'Trading Crypto', 'Analytics'],
-    link: '#'
+    stack: ['React', 'TailwindCSS', 'Vite', 'FastAPI'],
+    features: [
+      'Comptes',
+      'Transactions',
+      'Bénéficiaires',
+      'Dashboard & UI'
+    ],
+    link: 'https://banque-republic.micdev.fr/'
   },
   {
     id: 'feedflow',
     title: 'FeedFlow',
-    summary: 'Agrégateur de flux intelligent.',
-    description: 'Centralisez toutes vos sources d\'information en un seul endroit grâce à l\'IA qui trie le contenu pertinent pour votre veille.',
+    summary: 'Agrégateur de flux et plateforme de sondages.',
+    description: "Plateforme SaaS pour centraliser l'information et gérer des sondages. Notifications, multi-organisations et résultats détaillés intégrés.",
     image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop',
-    stack: ['Python', 'FastAPI', 'React Native'],
-    features: ['Filtre IA', 'Mode Lecture Offline', 'Multi-sources'],
-    link: '#'
+    stack: ['Laravel', 'PHP', 'Docker', 'React Native'],
+    features: [
+      'Sondages',
+      'Multi-organisations',
+      'Notifications',
+      'Statistiques'
+    ],
+    link: 'https://feedflow.micdev.fr/'
   }
 ];
 
@@ -160,7 +175,7 @@ export const TIMELINE: ExtendedTimelineEvent[] = [
   {
     date: '2026',
     title: 'Vers l\'Infini...',
-    description: 'Le futur s\'écrit maintenant avec l\'intégration massive de l\'IA et des nouveaux horizons technologiques.',
+    description: 'Le futur s\'écrit maintenant avec l\'intégration massive de l\'IA, des nouveaux horizons technologiques et toujours plein de passion.',
     memberId: 'mateis',
     color: '#746ac8',
     rotation: 0,
