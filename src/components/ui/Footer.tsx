@@ -1,14 +1,24 @@
+// ============================================
+// IMPORTS
+// ============================================
 import React from "react";
 import { Link } from "react-router-dom";
 import { Mail, Phone, Linkedin, Github, Globe, MapPin } from "lucide-react";
 
+// ============================================
+// COMPOSANT : Footer
+// Pied de page du site avec informations de contact et liens
+// ============================================
 const Footer: React.FC = () => {
   return (
     <footer className="bg-[#0f172a] text-slate-400 py-12 md:py-16 px-5 md:px-6 relative overflow-hidden">
+      {/* Ligne de séparation décorative en haut */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-700 to-transparent"></div>
 
       <div className="max-w-7xl mx-auto">
+        {/* Grille de 4 colonnes : Logo, Sitemap, Contact, Vision */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12 mb-12 md:mb-16">
+          {/* Colonne 1 : Logo et réseaux sociaux */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
               <img
@@ -23,6 +33,7 @@ const Footer: React.FC = () => {
             <p className="text-xs md:text-sm leading-relaxed max-w-xs opacity-70 hidden md:block">
              Nous sommes là pour collaborer, donner vie aux idées et créer des solutions digitales qui ont un vrai impact.
             </p>
+            {/* Liens vers les réseaux sociaux */}
             <div className="flex space-x-4">
               <a
                 href="https://www.linkedin.com/in/mathys-sclafer-199726250/"
@@ -41,6 +52,7 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
+          {/* Colonne 2 : Sitemap (visible uniquement sur desktop) */}
           <div className="space-y-6 hidden md:block">
             <h4 className="text-white font-black text-[11px] md:text-xs uppercase tracking-[0.2em]">
               Sitemap
@@ -81,11 +93,13 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
+          {/* Colonne 3 : Informations de contact */}
           <div className="space-y-6">
             <h4 className="text-white font-black text-[11px] md:text-xs uppercase tracking-[0.2em]">
               Contact
             </h4>
             <ul className="space-y-3 md:space-y-4 text-xs md:text-sm font-bold">
+              {/* Email de contact */}
               <li className="flex items-center space-x-3 group">
                 <div className="p-2 bg-slate-800 rounded-lg group-hover:bg-[#4992f1] group-hover:text-white transition-all">
                   <Mail size={14} />
@@ -98,6 +112,7 @@ const Footer: React.FC = () => {
                 </a>
               </li>
 
+              {/* Localisation */}
               <li className="flex items-center space-x-3 group">
                 <div className="p-2 bg-slate-800 rounded-lg group-hover:bg-[#746ac8] group-hover:text-white transition-all">
                   <MapPin size={14} />
@@ -107,6 +122,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
+          {/* Colonne 4 : Vision et statut (visible uniquement sur desktop) */}
           <div className="space-y-6 hidden md:block">
             <h4 className="text-white font-black text-[11px] md:text-xs uppercase tracking-[0.2em]">
               Vision
@@ -114,6 +130,7 @@ const Footer: React.FC = () => {
             <p className="text-[11px] md:text-xs italic leading-relaxed font-medium">
               "Pour nous, un bon produit repose avant tout sur un code solide et une expérience claire et intuitive."
             </p>
+            {/* Badge de statut avec indicateur animé */}
             <div className="p-3 md:p-4 bg-slate-800/50 rounded-2xl border border-slate-700/50">
               <span className="text-[9px] md:text-[10px] font-black uppercase text-white tracking-widest block mb-2">
                 Statut
@@ -126,6 +143,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
+        {/* Footer bas : Copyright et mentions légales */}
         <div className="pt-8 md:pt-10 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-5 md:gap-6">
           <p className="text-[9px] md:text-[10px] uppercase font-black tracking-[0.4em] opacity-30 text-center">
             © 2026 MIC STUDIO

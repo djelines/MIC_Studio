@@ -85,7 +85,7 @@ export const PROJECTS: Project[] = [
     summary: "Apprends le développement en t'amusant.",
     description: "Application Android gamifiée pour apprendre le code à travers des projets concrets et des mini-jeux interactifs, avec suivi de progression et récompenses motivantes.",
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
-    stack: ['Dart', 'Flutter', 'Firebase', 'Riverpod'],
+    stack: ['Dart', 'Flutter', 'Firebase', 'Rive'],
     features: [
       'Mini-jeux',
       'Progression',
@@ -115,7 +115,7 @@ export const PROJECTS: Project[] = [
     summary: 'Agrégateur de flux et plateforme de sondages.',
     description: "Plateforme SaaS pour centraliser l'information et gérer des sondages. Notifications, multi-organisations et résultats détaillés intégrés.",
     image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop',
-    stack: ['Laravel', 'PHP', 'Docker', 'React Native'],
+    stack: ['Laravel', 'PHP', 'Docker', 'TailwindCSS'],
     features: [
       'Sondages',
       'Multi-organisations',

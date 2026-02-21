@@ -1,0 +1,75 @@
+import { Member } from "@/types";
+import { motion } from "framer-motion";
+import { ExternalLink, Github, Linkedin, User } from "lucide-react";
+
+export const TeamMember = ({ member, index }: { member: Member, index: number }) => {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: index * 0.1 }}
+        className="group relative flex flex-col w-full bg-white rounded-[1.25rem] md:rounded-[2rem] border border-slate-100 overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 h-full"
+      >
+        {/* Zone d'image avec effet de révélation au survol (uniquement sur desktop) */}
+        <div className="w-full h-[200px] md:h-[240px] lg:h-[260px] relative overflow-hidden bg-slate-50 border-b border-slate-100 shrink-0">
+          
+          {/* Placeholder affiché par défaut (Caché sur mobile via "hidden md:flex", disparaît au survol) */}
+          <div className="absolute inset-0 hidden md:flex items-center justify-center bg-lemonade-bg z-0 group-hover:opacity-0 transition-opacity duration-700">
+             <div className="text-center opacity-30">
+                <div className="w-16 h-16 rounded-full border-2 border-dashed border-slate-300 flex items-center justify-center mx-auto mb-3 bg-white/50">
+                   <User size={24} className="text-slate-400" />
+                </div>
+                <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500">Survolez moi</p>
+             </div>
+          </div>
+          
+          {/* Image du membre (Visible par défaut sur mobile, cachée puis révélée au survol sur PC) */}
+          <motion.img 
+            src={member.image} 
+            alt={member.name} 
+            className="absolute inset-0 w-full h-full object-cover 
+            opacity-100 md:opacity-0 md:group-hover:opacity-100 
+            scale-100 md:scale-110 md:group-hover:scale-100 
+            transition-all duration-700 z-10"
+          />
+          
+          {/* Overlay coloré au survol (Activé uniquement sur PC via md:) */}
+          <div className="absolute inset-0 z-20 opacity-0 md:group-hover:opacity-10 transition-opacity duration-500 pointer-events-none" style={{ backgroundColor: member.color }} />
+        </div>
+  
+        {/* Contenu de la carte : Informations du membre */}
+        <div className="flex-1 p-4 md:p-6 flex flex-col justify-between z-10 bg-white relative">
+          <div className="space-y-2.5 md:space-y-4 mb-3 md:mb-6">
+            {/* Nom et rôle du membre */}
+            <div className="space-y-1">
+              <h3 className="text-lg md:text-2xl font-black text-slate-800 tracking-tight">{member.name}</h3>
+              <div className="w-8 h-px bg-slate-200" />
+              <p className="font-extrabold tracking-[0.15em] uppercase text-[9px] md:text-[10px] mt-2" style={{ color: member.color }}>{member.role}</p>
+            </div>
+            
+            {/* Citation du membre */}
+            <p className="text-[11px] md:text-sm italic leading-relaxed font-medium text-slate-500">
+              "{member.quote}"
+            </p>
+          </div>
+          
+          {/* Footer : Liens sociaux et portfolio */}
+          <div className="flex items-center justify-between pt-3 md:pt-4 border-t border-slate-50">
+            {/* Boutons des réseaux sociaux */}
+            <div className="flex gap-2">
+              <a href={member.github} className="p-1.5 md:p-2 bg-slate-50 rounded-full hover:bg-member1 hover:text-white transition-all shadow-sm"><Github className="w-3.5 h-3.5 md:w-4 md:h-4" /></a>
+              <a href={member.linkedin} className="p-1.5 md:p-2 bg-slate-50 rounded-full hover:bg-member1 hover:text-white transition-all shadow-sm"><Linkedin className="w-3.5 h-3.5 md:w-4 md:h-4" /></a>
+            </div>
+            {/* Lien vers le portfolio */}
+            <a 
+              href={member.portfolio} 
+              className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-black uppercase tracking-widest text-member1 hover:gap-2 transition-all"
+            >
+              Portfolio <ExternalLink className="w-2.5 h-2.5 md:w-3 md:h-3" />
+            </a>
+          </div>
+        </div>
+      </motion.div>
+    );
+  };
