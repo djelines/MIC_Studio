@@ -209,13 +209,7 @@ const Realisations = () => {
 
             <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 w-full max-w-3xl">
                
-               <motion.div
-                  whileHover={{ scale: 1.1, rotate: 90 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 10 }}
-                  className="w-16 h-16 md:w-20 md:h-20 rounded-xl md:rounded-2xl bg-[#E8D5B5]/5 border border-[#E8D5B5]/15 backdrop-blur-md flex items-center justify-center mb-6 md:mb-8 lg:mb-10 shadow-[0_0_30px_rgba(232,213,181,0.05)] cursor-pointer"
-               >
-                  <Sparkles className="text-[#E8D5B5] w-8 h-8 md:w-10 md:h-10 opacity-90" />
-               </motion.div>
+               
 
                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-b from-[#FDFBF7] to-[#E8D5B5]/50 tracking-tight mb-4 md:mb-6">
                  À Suivre...

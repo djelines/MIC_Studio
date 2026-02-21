@@ -203,12 +203,7 @@ const Epopee = () => {
 
               <div className="absolute inset-0 z-20 flex flex-col items-center justify-end pb-[15%] md:pb-[10%] px-8 md:px-16">
                 
-                <motion.div 
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="hidden md:block w-14 h-14 md:w-20 md:h-20 mb-4 md:mb-6 rounded-full bg-white border-2 md:border-4 border-slate-50 flex items-center justify-center animate-bounce shadow-md cursor-pointer"
-                >
-                  <Sparkles className="w-6 h-6 md:w-10 md:h-10 text-member3" />
-                </motion.div>
+                
                 
                 <div className="space-y-2 md:space-y-4 mt-4 md:mt-0">
                   <h2 className="text-2xl md:text-5xl lg:text-6xl font-black bg-clip-text text-transparent bg-gradient-to-r from-member1 via-member3 to-member2">
