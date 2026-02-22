@@ -167,7 +167,7 @@ export const TIMELINE: ExtendedTimelineEvent[] = [
     color: '#746ac8',
     rotation: -2,
     icon: <Users className="w-6 h-6" />,
-    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop'
+    image: '/static/equipe.webp'
   },
   {
     date: '2023 Q4',
@@ -177,7 +177,7 @@ export const TIMELINE: ExtendedTimelineEvent[] = [
     color: '#49b4a7',
     rotation: 3,
     icon: <Code className="w-6 h-6" />,
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=2070&auto=format&fit=crop'
+    image: '/static/mobile.webp'
   },
   {
     date: '2024 Q1',
@@ -187,7 +187,7 @@ export const TIMELINE: ExtendedTimelineEvent[] = [
     color: '#4992f1',
     rotation: -1,
     icon: <Building className="w-6 h-6" />,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop'
+    image: '/static/banque.webp'
   },
   {
     date: '2024 Q2',
@@ -197,7 +197,7 @@ export const TIMELINE: ExtendedTimelineEvent[] = [
     color: '#233147',
     rotation: 2,
     icon: <Zap className="w-6 h-6" />,
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop'
+    image: '/static/sondage.webp'
   },
   {
     date: '2026',
@@ -207,7 +207,7 @@ export const TIMELINE: ExtendedTimelineEvent[] = [
     color: '#746ac8',
     rotation: 0,
     icon: <Compass className="w-6 h-6" />,
-    image: 'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=2072&auto=format&fit=crop'
+    image: '/static/avenir.webp'
   }
 ];
 

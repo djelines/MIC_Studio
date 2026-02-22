@@ -290,7 +290,7 @@ const Home = () => {
               <div className="absolute inset-0 bg-member1/5 rounded-[2rem] md:rounded-[3rem] lg:rounded-[4rem] rotate-3 -z-10 blur-2xl" />
               {/* Image du studio */}
               <img
-                src="https://images.unsplash.com/photo-1553028826-f4804a6dba3b?q=80&w=2070&auto=format&fit=crop"
+                src="/static/faq.webp"
                 alt="Studio FAQ"
                 className=" w-full h-full object-cover rounded-[1.5rem] md:rounded-[2rem] lg:rounded-[3rem] shadow-2xl"
               />
