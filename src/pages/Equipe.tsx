@@ -37,7 +37,7 @@ const Equipe = () => {
             icon: Users,
             label: 'Synergie',
             text: '4 Profils Complémentaires',
-            color: 'member1',
+            color: 'member3',
             position: 'left',
             top: 'top-[30%]',
             delay: 0,
@@ -58,7 +58,7 @@ const Equipe = () => {
           color: 'member1',
         }}
         title="L'Équipe MIC"
-        description="Quatre profils complémentaires, passionnés et rigoureux, réunis par une même ambition : concevoir des solutions digitales solides et impactantes."
+        description="Quatre profils différents, une seule équipe. Nous avançons ensemble, avec sérieux, écoute et complémentarité."
         scrollIndicator={
           <motion.div 
             initial={{ opacity: 0 }}
@@ -95,9 +95,7 @@ const Equipe = () => {
             </motion.div>
             <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-800 font-outfit uppercase">Nos Experts</h2>
             <p className="text-sm md:text-lg lg:text-xl text-slate-500 font-medium leading-relaxed px-3 sm:px-4">
-              MIC Studio repose sur une équipe de quatre développeurs aux compétences complémentaires.
-              Nous partageons une exigence commune : travailler avec rigueur, sérieux et engagement pour transformer des idées en solutions concrètes.
-              Notre diversité de profils nous permet d'aborder chaque projet avec recul, créativité et précision technique.
+              Chez MIC Studio, nous sommes quatre développeurs aux forces complémentaires. Chacun apporte sa pièce au puzzle. Nous travaillons main dans la main, avec rigueur et bienveillance, pour transformer vos idées en projets concrets, solides et durables.
               </p>
           </div>
           

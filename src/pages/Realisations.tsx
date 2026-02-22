@@ -72,7 +72,7 @@ const Realisations = () => {
           color: 'member1',
         }}
         title="Nos Réalisations"
-        description="Explorez nos derniers projets. Des solutions web innovantes, performantes et conçues sur-mesure pour répondre aux défis de demain."
+        description="Nos réalisations sont avant tout des histoires qui commencent. Des projets utiles, pensés pour les utilisateurs, construits avec sens, simplicité et engagement."
         scrollIndicator={
           <motion.div 
             initial={{ opacity: 0 }}
@@ -122,7 +122,7 @@ const Realisations = () => {
                       <AnimatePresence mode="wait">
                         <motion.img 
                           key={selectedIndex}
-                          src={mainImage} // CORRECTION : Retrait du [0]
+                          src={mainImage} 
                           alt={proj.title}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
@@ -133,7 +133,7 @@ const Realisations = () => {
                       </AnimatePresence>
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 md:p-6 pointer-events-none">
                          <div className="space-y-1">
-                           <p className="text-white font-bold text-xs md:text-sm flex items-center gap-2"><Globe className="w-3 h-3"/> mic-studio.fr/{proj.id}</p>
+                           <p className="text-white font-bold text-xs md:text-sm flex items-center gap-2"><Globe className="w-3 h-3"/>{proj.link}</p>
                          </div>
                       </div>
                     </div>

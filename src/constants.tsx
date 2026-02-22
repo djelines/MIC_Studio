@@ -103,10 +103,11 @@ export const PROJECTS: Project[] = [
     title: 'Banque Republic',
     summary: 'Fintech moderne sécurisée.',
     description: "Application bancaire moderne offrant une gestion complète des comptes, des transactions et des bénéficiaires avec une interface intuitive et sécurisée.",
-    images: ['https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop'
+    images: ['/static/banque_home.webp',
+      '/static/banque_account.webp',
+      '/static/banque_stat.webp',
+      '/static/banque_transaction.webp'
+      
     ],
     stack: ['React', 'TailwindCSS', 'Vite', 'FastAPI'],
     features: [
@@ -122,10 +123,10 @@ export const PROJECTS: Project[] = [
     title: 'FeedFlow',
     summary: 'Agrégateur de flux et plateforme de sondages.',
     description: "Plateforme SaaS pour centraliser l'information et gérer des sondages. Notifications, multi-organisations et résultats détaillés intégrés.",
-    images: ['https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop'
+    images: ['/static/feedflow_home.webp',
+      '/static/feedflow_dashboard.webp',
+      '/static/feedflow_stat.webp',
+      '/static/feedflow_surgey.webp'
     ],
     stack: ['Laravel', 'PHP', 'Docker', 'TailwindCSS'],
     features: [

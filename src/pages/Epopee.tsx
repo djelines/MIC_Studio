@@ -83,7 +83,7 @@ const Epopee = () => {
             text: 'Une ascension fulgurante',
             color: 'amber-500',
             position: 'right',
-            top: 'top-[60%] md:top-[50%]',
+            top: 'top-[60%]',
             delay: 1,
           },
         ]}
@@ -94,17 +94,7 @@ const Epopee = () => {
         }}
         title="Notre Épopée"
         description="D'une simple idée à un studio d'innovation. Découvrez les moments clés qui ont forgé l'histoire de MIC Studio."
-        content={
-          <motion.button
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="group relative flex items-center gap-3 px-8 py-4 bg-white text-slate-900 rounded-full font-bold text-xs md:text-base hover:scale-105 transition-all shadow-[0_0_40px_rgba(255,255,255,0.3)]"
-          >
-            <Rocket className=" sm:w-5 sm:h-5 w-4 h-4 text-member3 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
-            Commencer le voyage
-          </motion.button>
-        }
+        
         scrollIndicator={
           <motion.div
             initial={{ opacity: 0 }}
