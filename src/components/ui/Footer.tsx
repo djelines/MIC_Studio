@@ -91,10 +91,10 @@ const Footer: React.FC = () => {
                   <Mail size={14} />
                 </div>
                 <a
-                  href="mailto:contact@mic-studio.fr"
+                  href="mailto:contact@micdev.fr"
                   className="group-hover:text-white"
                 >
-                  contact@mic-studio.fr
+                  contact@micdev.fr
                 </a>
               </li>
 

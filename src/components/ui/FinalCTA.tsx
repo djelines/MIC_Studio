@@ -25,7 +25,7 @@ const FinalCTA = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
               <a
-                href="mailto:contact@mic-studio.fr"
+                href="mailto:contact@micdev.fr"
                 className="inline-flex items-center justify-center px-8 py-4 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-lg transition-colors group"
               >
                 Envoyer un message
