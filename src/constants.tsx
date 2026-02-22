@@ -22,7 +22,7 @@ export const MEMBERS: Member[] = [
   {
     id: 'mathys',
     name: 'Mathys',
-    role: 'Le styliste du Front',
+    role: 'Le styliste du front',
     color: '#49b4a7',
     image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop',
     github: 'https://github.com/zinackes',
@@ -53,26 +53,26 @@ export const MEMBERS: Member[] = [
 
 export const VALUES = [
   {
-    title: 'Technique',
-    description: 'Une maîtrise approfondie des dernières technologies pour des solutions robustes.',
+    title: 'Exigence',
+    description: 'Nous travaillons avec rigueur et précision. Chaque détail compte pour livrer des solutions fiables, performantes et durables.',
     icon: <ShieldCheck className="w-8 h-8" />,
     color: 'member1'
   },
   {
-    title: 'Créatif',
-    description: "L'innovation passe par une approche visuelle et conceptuelle unique.",
+    title: 'Ingéniosité',
+    description: 'Nous cherchons des idées justes et utiles. Des solutions créatives, pensées avec sens et adaptées aux utilisateurs.',
     icon: <Palette className="w-8 h-8" />,
     color: 'member2'
   },
   {
-    title: 'Collaboratif',
-    description: 'Une équipe soudée pour multiplier les compétences et les perspectives.',
+    title: 'Cohésion',
+    description: 'Nous avançons ensemble. Le partage, l’écoute et le travail d’équipe sont au cœur de notre manière de construire.',
     icon: <Users className="w-8 h-8" />,
     color: 'member3'
   },
   {
-    title: 'Apprenant',
-    description: 'Une veille technologique constante pour rester à la pointe du secteur.',
+    title: 'Évolution',
+    description: 'Nous apprenons en continu. Veille, curiosité et remise en question nous permettent de rester pertinents et actuels.',
     icon: <BookOpen className="w-8 h-8" />,
     color: 'member4'
   }
@@ -160,9 +160,9 @@ export interface ExtendedTimelineEvent extends TimelineEvent {
 
 export const TIMELINE: ExtendedTimelineEvent[] = [
   {
-    date: '2023',
-    title: 'Formation équipe MIC',
-    description: 'Réunion des quatre talents fondateurs autour d\'une vision commune et d\'une passion pour l\'innovation.',
+    date: 'Septembre 2024',
+    title: 'Rencontre MIC',
+    description: 'Nous nous rencontrons à l’école et découvrons que nous partageons les mêmes idées et des compétences complémentaires. Une équipe se forme naturellement.',
     memberId: 'mateis',
     color: '#746ac8',
     rotation: -2,
@@ -170,9 +170,9 @@ export const TIMELINE: ExtendedTimelineEvent[] = [
     image: '/static/equipe.webp'
   },
   {
-    date: '2023 Q4',
+    date: 'Janvier 2025',
     title: 'Lancement MakeItCode',
-    description: 'Notre premier grand projet éducatif voit le jour et reçoit ses premiers utilisateurs enthousiastes.',
+    description: 'Notre premier projet éducatif : apprendre le code sous forme de jeu. On adore chaque étape de sa création et les premiers utilisateurs sont conquis.',
     memberId: 'mathys',
     color: '#49b4a7',
     rotation: 3,
@@ -180,9 +180,9 @@ export const TIMELINE: ExtendedTimelineEvent[] = [
     image: '/static/mobile.webp'
   },
   {
-    date: '2024 Q1',
+    date: 'Octobre 2025',
     title: 'Banque Republic',
-    description: 'Incursion réussie dans le monde de la Fintech avec une solution sécurisée et moderne.',
+    description: 'Premier pas dans la Fintech avec une banque en ligne sécurisée et moderne, pensée pour les utilisateurs.',
     memberId: 'ines',
     color: '#4992f1',
     rotation: -1,
@@ -190,9 +190,9 @@ export const TIMELINE: ExtendedTimelineEvent[] = [
     image: '/static/banque.webp'
   },
   {
-    date: '2024 Q2',
-    title: 'FeedFlow Release',
-    description: 'Solution de productivité majeure pour la gestion de l\'information et la veille stratégique.',
+    date: 'Décembre 2025',
+    title: 'FeedFlow',
+    description: 'Lancement de notre SaaS de sondage. Une solution pratique pour collecter et analyser des informations, au service de projets concrets.',
     memberId: 'clement',
     color: '#233147',
     rotation: 2,
@@ -200,14 +200,14 @@ export const TIMELINE: ExtendedTimelineEvent[] = [
     image: '/static/sondage.webp'
   },
   {
-    date: '2026',
-    title: 'Vers l\'Infini...',
-    description: 'Le futur s\'écrit maintenant avec l\'intégration massive de l\'IA, des nouveaux horizons technologiques et toujours plein de passion.',
+    date: '2026 et au-delà',
+    title: 'Vers l’Infini...',
+    description: 'Nous voulons explorer l’IA et de nouveaux horizons technologiques, toujours avec passion et le désir de créer des projets utiles et concrets.',
     memberId: 'mateis',
     color: '#746ac8',
     rotation: 0,
     icon: <Compass className="w-6 h-6" />,
-    image: '/static/avenir.webp'
+    image: '/static/avenir.jpeg'
   }
 ];
 
@@ -219,32 +219,29 @@ export const LogoMIC = ({ className = "w-12 h-12" }) => (
 
 export const developmentSteps = [
   {
-    title: "Exigence",
-    description: "Nous étudions en profondeur vos besoins, votre marché et.",
+    title: "Comprendre",
+    description: "On prend le temps de cerner vos idées et vos besoins, pour vraiment savoir ce qu’il faut créer.",
     icon: Search,
     color: "#746ac8",
     svg: <RequirementsMap />,
   },
   {
-    title: "Architecture",
-    description:
-      "Conception d'une architecture technique solide et scalable.",
+    title: "Imaginer",
+    description: "On réfléchit à la meilleure manière de structurer le projet, pour que tout tienne bien ensemble et soit facile à faire évoluer.",
     icon: Layers,
     color: "#49b4a7",
     svg: <SystemArchitecture />,
   },
   {
-    title: "Développement",
-    description:
-      "Implémentation rigoureuse avec des pratiques de code propres.",
+    title: "Créer",
+    description: "On code, teste et ajuste avec soin. Chaque ligne compte pour que le projet fonctionne vraiment et fasse sens.",
     icon: Code2,
     color: "#4992f1",
     svg: <CodeImplementation />,
   },
   {
-    title: "Déploiement",
-    description:
-      "Déploiement sécurisé, monitoring continu et accompagnement.",
+    title: "Partager",
+    description: "On met le projet en ligne, on s’assure que tout marche, et on reste là pour que ça dure et que ça serve vraiment.",
     icon: Rocket,
     color: "#233147",
     svg: <DeploymentStatus />,
@@ -253,15 +250,23 @@ export const developmentSteps = [
 
 export const faqs = [
   {
-    q: "Pourquoi choisir MIC Studio ?",
-    a: "Notre force réside dans la complémentarité de nos profils et notre engagement total sur chaque projet. Nous ne livrons pas seulement du code, nous bâtissons des solutions durables.",
+    q: "Qui êtes-vous vraiment ?",
+    a: "On est quatre étudiants qui adorent coder, créer et apprendre. Chacun apporte sa pièce au puzzle et ensemble on fait des projets qui ont du sens.",
   },
   {
-    q: "Quelles technologies utilisez-vous ?",
-    a: "Nous privilégions les stacks modernes comme Next.js, TypeScript et Node.js pour assurer performance et évolutivité. Nous adaptons la technologie au besoin, pas l'inverse.",
+    q: "Pourquoi vos projets sont-ils différents ?",
+    a: "Parce qu’on ne fait pas juste du code. On essaie toujours de comprendre les utilisateurs, de rendre les choses simples et utiles, et de s’amuser en même temps.",
   },
   {
-    q: "Êtes-vous disponibles pour de nouveaux projets ?",
-    a: "Oui, nous sommes toujours à la recherche de défis innovants, particulièrement ceux à impact social. Parlons-en !",
+    q: "Vous acceptez de nouveaux projets ?",
+    a: "Oui ! On aime les défis et les idées qui ont un vrai impact. Si ça vous passionne autant que nous, on veut en parler et s’y mettre à fond.",
   },
+  {
+    q: "Comment vous restez à jour en tech ?",
+    a: "On est toujours en train d’apprendre et de tester de nouvelles choses. Entre veille, tutos et expérimentations, on garde nos compétences fraîches et nos idées fraîches.",
+  },
+  {
+    q: "Vous travaillez bien en équipe ?",
+    a: "Complètement. On se complète, on se challenge et on partage tout. C’est comme ça qu’on transforme des idées en projets qui fonctionnent vraiment.",
+  }
 ];

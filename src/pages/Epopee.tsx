@@ -71,7 +71,7 @@ const Epopee = () => {
           {
             icon: Clock,
             label: 'Origine',
-            text: 'Création en 2023',
+            text: 'Création en 2024',
             color: 'indigo-500',
             position: 'left',
             top: 'top-[30%] md:top-[25%]',
@@ -80,7 +80,7 @@ const Epopee = () => {
           {
             icon: Sparkles,
             label: 'Évolution',
-            text: 'Une ascension fulgurante',
+            text: 'Un pas à la fois',
             color: 'amber-500',
             position: 'right',
             top: 'top-[60%]',
