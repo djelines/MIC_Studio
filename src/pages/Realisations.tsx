@@ -182,6 +182,7 @@ const Realisations = () => {
                       </DialogTrigger>
 
                       {/* Modale d'affichage en plein écran */}
+
                       <DialogContent 
                         showCloseButton={false} 
                         className="flex justify-center items-center w-auto h-auto max-w-none max-h-none border-none bg-transparent shadow-none p-0 overflow-visible"
@@ -190,7 +191,11 @@ const Realisations = () => {
                         <img
                           src={mainImage.image}
                           alt={proj.title}
-                          className="w-auto h-auto max-w-[95vw] md:max-w-[85vw] max-h-[90vh] md:max-h-[85vh] object-contain rounded-xl drop-shadow-2xl"
+                          className={`w-auto h-auto object-contain rounded-xl drop-shadow-2xl ${
+                            mainImage.type === 'portrait'
+                              ? 'max-h-[75vh] md:max-h-[80vh] max-w-[90vw]' // Plus restrictif sur la hauteur pour les portraits
+                              : 'max-w-[95vw] md:max-w-[85vw] max-h-[90vh] md:max-h-[85vh]' // Standard pour les paysages
+                          }`}
                         />
                       </DialogContent>
                     </Dialog>
