@@ -1,0 +1,48 @@
+# ============================================================
+# PRODUCTION — docker-compose.prod.yml
+# ============================================================
+# Utilisation :
+#   docker compose -f docker-compose.prod.yml up -d
+#
+# Prérequis — authentification ghcr.io sur le host :
+#   export CR_PAT=<votre_PAT_github_read:packages>
+#   echo $CR_PAT | docker login ghcr.io -u <votre_username_github> --password-stdin
+# ============================================================
+
+services:
+
+  portfolio:
+    image: ghcr.io/djelines/mic_studio:latest
+    container_name: mic-studio
+    restart: unless-stopped
+    ports:
+      - "9958:80"
+
+    security_opt:
+      - no-new-privileges:true
+
+    # Filesystem en lecture seule — nginx a besoin d'écrire dans
+    # /var/cache/nginx, /var/run (PID) et /tmp uniquement
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx:uid=101,gid=101
+      - /var/run:uid=101,gid=101
+      - /tmp:uid=101,gid=101
+
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
+
+    # Label activant la surveillance Watchtower (opt-in)
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
