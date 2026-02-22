@@ -134,7 +134,7 @@ export const PROJECTS: Project[] = [
     description: "Plateforme SaaS pour centraliser l'information et gérer des sondages. Notifications, multi-organisations et résultats détaillés intégrés.",
     images: [
       { image: '/static/feedflow/feedflow_dashboard.png', type: "landscape" },
-      { image: '/static/feedflow/feedflow_surveys.png', type: "landscape" },
+      { image: '/static/feedflow/feedflow_plan.png', type: "landscape" },
       { image: '/static/feedflow/feedflow_survey.png', type: "landscape" },
       { image: '/static/feedflow/feedflow_stat.png', type: "landscape" }
     ],
