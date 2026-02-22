@@ -146,18 +146,47 @@ export const ProjectCarousel: React.FC = () => {
             <Dialog onOpenChange={setIsZoomed}>
               <DialogTrigger asChild>
                 <div className="relative w-full md:w-[60%] h-[45%] md:h-full bg-secondary overflow-hidden group cursor-zoom-in">
-                  <motion.img
-                    src={currentProject.imageHome}
-                    alt={currentProject.title}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    initial={{ scale: 1.1 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.8 }}
-                  />
-                  <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/20" />
+                  
+                  {/* AFFICHAGE CONDITIONNEL SELON LE TYPE */}
+                  {currentProject.imageHome.type === 'portrait' ? (
+                    // ==============================
+                    // AFFICHAGE PORTRAIT (MOBILE)
+                    // ==============================
+                    <div className="relative w-full h-full flex justify-center items-center bg-slate-900 overflow-hidden">
+                      {/* L'arrière-plan flouté */}
+                      <motion.img 
+                        src={currentProject.imageHome.image} 
+                        alt="background" 
+                        className="absolute inset-0 w-full h-full object-cover opacity-40 blur-2xl scale-125 pointer-events-none"
+                      />
+                      {/* L'image du téléphone centrée */}
+                      <motion.img
+                        src={currentProject.imageHome.image}
+                        alt={currentProject.title}
+                        className="relative z-10 h-[85%] w-auto object-contain rounded-lg drop-shadow-[0_25px_25px_rgba(0,0,0,0.5)] transition-transform duration-700 group-hover:scale-[1.03]"
+                        initial={{ scale: 1.05 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 0.8 }}
+                      />
+                    </div>
+                  ) : (
+                    // ==============================
+                    // AFFICHAGE LANDSCAPE (WEB)
+                    // ==============================
+                    <motion.img
+                      src={currentProject.imageHome.image}
+                      alt={currentProject.title}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      initial={{ scale: 1.1 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.8 }}
+                    />
+                  )}
+
+                  <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/20 z-20" />
 
                   {/* Petite icône de zoom au survol pour indiquer que c'est cliquable */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-30">
                      <div className="bg-black/50 backdrop-blur-sm p-4 rounded-full text-white">
                         <Maximize2 className="w-6 h-6" />
                      </div>
@@ -166,12 +195,17 @@ export const ProjectCarousel: React.FC = () => {
               </DialogTrigger>
 
               {/* Contenu de la modale (Le fond transparent met l'image en valeur) */}
-              <DialogContent showCloseButton={false} className="max-w-[75vw] md:max-w-[80vw] max-h-[95vh] md:max-h-[80vh] border-none bg-transparent shadow-none p-0 flex justify-center items-center">
+              <DialogContent 
+                showCloseButton={false} 
+                // w-auto, h-auto, max-w-none et max-h-none "libèrent" la modale des contraintes mobiles de Shadcn
+                className="flex justify-center items-center w-auto h-auto max-w-none max-h-none border-none bg-transparent shadow-none p-0 overflow-visible"
+              >
                 <DialogTitle className="sr-only">Zoom sur {currentProject.title}</DialogTitle>
                 <img
-                  src={currentProject.imageHome}
+                  src={currentProject.imageHome.image}
                   alt={currentProject.title}
-                  className="max-w-full max-h-full object-contain rounded-xl drop-shadow-2xl"
+                  // C'EST ICI qu'on bloque la taille pour le mobile (95vw = 95% de la largeur de l'écran)
+                  className="w-auto h-auto max-w-[95vw] md:max-w-[85vw] max-h-[90vh] md:max-h-[85vh] object-contain rounded-xl drop-shadow-2xl"
                 />
               </DialogContent>
             </Dialog>

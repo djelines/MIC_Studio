@@ -15,11 +15,17 @@ export interface Project {
   title: string;
   description: string;
   summary: string;
-  images: string[];
+  images: {
+    image: string,
+    type: "portrait" | "landscape"
+  }[];
   stack: string[];
   features: string[];
   link?: string;
-  imageHome: string;
+  imageHome: {
+    image: string;
+    type: "portrait" | "landscape"
+  };
 }
 
 export interface TimelineEvent {
