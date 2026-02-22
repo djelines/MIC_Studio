@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, ArrowRight, Minus, Pause, Play } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Minus, Pause, Play, Maximize2 } from 'lucide-react';
 import { Button } from './button';
 import { SectionTitle } from '@/pages/Home';
 import { Tooltip, TooltipContent, TooltipTrigger } from './tooltip';
+import { Dialog, DialogContent, DialogTrigger, DialogTitle } from '@/components/ui/dialog';
 import { PROJECTS } from '@/constants';
 import { useNavigate } from 'react-router-dom';
 
@@ -47,6 +48,7 @@ const AUTOPLAY_DURATION = 11500;
 export const ProjectCarousel: React.FC = () => {
   const [[page, direction], setPage] = useState([0, 0]);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isZoomed, setIsZoomed] = useState(false); // État pour savoir si l'image est zoomée
 
   const projectIndex = ((page % PROJECTS.length) + PROJECTS.length) % PROJECTS.length;
   const currentProject = PROJECTS[projectIndex];
@@ -57,20 +59,23 @@ export const ProjectCarousel: React.FC = () => {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Ne pas changer de slide avec le clavier si on est en train de regarder l'image en grand
+      if (isZoomed) return; 
       if (e.key === 'ArrowLeft') paginate(-1);
       if (e.key === 'ArrowRight') paginate(1);
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [paginate]);
+  }, [paginate, isZoomed]);
 
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    // Si l'autoplay est désactivé OU si l'image est en plein écran, on met en pause
+    if (!isAutoPlaying || isZoomed) return;
     const interval = setInterval(() => {
       paginate(1);
     }, AUTOPLAY_DURATION);
     return () => clearInterval(interval);
-  }, [isAutoPlaying, paginate, page]);
+  }, [isAutoPlaying, paginate, page, isZoomed]);
 
   const navigate = useNavigate();
 
@@ -138,18 +143,38 @@ export const ProjectCarousel: React.FC = () => {
             className="absolute inset-0 flex flex-col md:flex-row w-full h-full rounded-[1.5rem] md:rounded-[2rem] lg:rounded-[2.5rem] xl:rounded-[3rem] overflow-hidden border border-border/60 shadow-2xl bg-card"
           >
             
-            <div className="relative w-full md:w-[60%] h-[45%] md:h-full bg-secondary overflow-hidden group">
-              <motion.img
-                src={currentProject.images[0]}
-                alt={currentProject.title}
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                initial={{ scale: 1.1 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.8 }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent md:bg-black/10 transition-colors duration-500" />
-            
-            </div>
+            <Dialog onOpenChange={setIsZoomed}>
+              <DialogTrigger asChild>
+                <div className="relative w-full md:w-[60%] h-[45%] md:h-full bg-secondary overflow-hidden group cursor-zoom-in">
+                  <motion.img
+                    src={currentProject.imageHome}
+                    alt={currentProject.title}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    initial={{ scale: 1.1 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.8 }}
+                  />
+                  <div className="absolute inset-0 bg-black/0 transition-colors duration-500 group-hover:bg-black/20" />
+
+                  {/* Petite icône de zoom au survol pour indiquer que c'est cliquable */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                     <div className="bg-black/50 backdrop-blur-sm p-4 rounded-full text-white">
+                        <Maximize2 className="w-6 h-6" />
+                     </div>
+                  </div>
+                </div>
+              </DialogTrigger>
+
+              {/* Contenu de la modale (Le fond transparent met l'image en valeur) */}
+              <DialogContent showCloseButton={false} className="max-w-[75vw] md:max-w-[80vw] max-h-[95vh] md:max-h-[80vh] border-none bg-transparent shadow-none p-0 flex justify-center items-center">
+                <DialogTitle className="sr-only">Zoom sur {currentProject.title}</DialogTitle>
+                <img
+                  src={currentProject.imageHome}
+                  alt={currentProject.title}
+                  className="max-w-full max-h-full object-contain rounded-xl drop-shadow-2xl"
+                />
+              </DialogContent>
+            </Dialog>
 
             <div className="relative w-full md:w-[40%] h-[55%] md:h-full bg-card/95 backdrop-blur-sm p-5 sm:p-6 md:p-8 lg:p-10 xl:p-12 flex flex-col justify-center border-t md:border-t-0 md:border-l border-border/50">
               
@@ -261,8 +286,8 @@ export const ProjectCarousel: React.FC = () => {
 
         <div className="hidden sm:block">
            <a href="#/realisations" className="text-xs md:text-sm font-medium text-muted-member3 hover:text-primary transition-colors flex items-center gap-2 group">
-              Voir tous les projets
-              <ArrowRight className="w-3 h-3 md:w-4 md:h-4 transition-transform group-hover:translate-x-1" />
+             Voir tous les projets
+             <ArrowRight className="w-3 h-3 md:w-4 md:h-4 transition-transform group-hover:translate-x-1" />
            </a>
         </div>
       </div>

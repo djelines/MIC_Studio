@@ -89,6 +89,7 @@ export const PROJECTS: Project[] = [
       'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop',
       'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop'
     ],
+    imageHome: "/static/mic/mic_home.webp",
     stack: ['Dart', 'Flutter', 'Firebase', 'Rive'],
     features: [
       'Mini-jeux',
@@ -103,12 +104,12 @@ export const PROJECTS: Project[] = [
     title: 'Banque Republic',
     summary: 'Fintech moderne sécurisée.',
     description: "Application bancaire moderne offrant une gestion complète des comptes, des transactions et des bénéficiaires avec une interface intuitive et sécurisée.",
-    images: ['/static/banque_home.webp',
-      '/static/banque_account.webp',
-      '/static/banque_stat.webp',
-      '/static/banque_transaction.webp'
-      
+    images: ['/static/banque/banque_home.webp',
+      '/static/banque/banque_account.webp',
+      '/static/banque/banque_stat.webp',
+      '/static/banque/banque_transaction.webp'
     ],
+    imageHome: '/static/banque/banque_home.png',
     stack: ['React', 'TailwindCSS', 'Vite', 'FastAPI'],
     features: [
       'Comptes',
@@ -123,11 +124,13 @@ export const PROJECTS: Project[] = [
     title: 'FeedFlow',
     summary: 'Agrégateur de flux et plateforme de sondages.',
     description: "Plateforme SaaS pour centraliser l'information et gérer des sondages. Notifications, multi-organisations et résultats détaillés intégrés.",
-    images: ['/static/feedflow_home.webp',
-      '/static/feedflow_dashboard.webp',
-      '/static/feedflow_stat.webp',
-      '/static/feedflow_surgey.webp'
+    images: [
+      '/static/feedflow/feedflow_dashboard.png',
+      '/static/feedflow/feedflow_organization.png',
+      '/static/feedflow/feedflow_survey.png',
+      '/static/feedflow/feedflow_stat.png',
     ],
+    imageHome: '/static/feedflow/feedflow_home.png',
     stack: ['Laravel', 'PHP', 'Docker', 'TailwindCSS'],
     features: [
       'Sondages',

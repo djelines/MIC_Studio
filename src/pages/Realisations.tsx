@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PROJECTS } from '../constants';
-import { ExternalLink, CheckCircle, Globe, Code2, Sparkles, ChevronDown, Layers, MonitorSmartphone } from 'lucide-react';
+import { ExternalLink, CheckCircle, Globe, Code2, Sparkles, ChevronDown, Layers, MonitorSmartphone, Maximize2 } from 'lucide-react';
 import { useLocation } from 'react-router-dom';
 import Hero from '@/components/ui/Hero';
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
 const Realisations = () => {
   const { hash } = useLocation();
@@ -115,44 +116,77 @@ const Realisations = () => {
               <div className="bg-white rounded-[1.25rem] md:rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden p-4 md:p-5 lg:p-6">
                 <div className={`flex flex-col lg:items-center gap-5 md:gap-8 lg:gap-10 ${idx % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                   
-                  <div className="flex-1 group relative">
+                <div className="flex-1 group relative">
                     <div className="absolute inset-0 bg-member1/10 blur-2xl opacity-0 group-hover:opacity-30 transition-opacity pointer-events-none transform-gpu" />
                     
-                    <div className="relative rounded-[1rem] md:rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden shadow-lg border border-slate-100 aspect-video lg:aspect-[4/3] mb-3 z-10">
-                      <AnimatePresence mode="wait">
-                        <motion.img 
-                          key={selectedIndex}
-                          src={mainImage} 
-                          alt={proj.title}
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.3 }}
-                          className="w-full h-full object-cover transform-gpu"
-                        />
-                      </AnimatePresence>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 md:p-6 pointer-events-none">
-                         <div className="space-y-1">
-                           <p className="text-white font-bold text-xs md:text-sm flex items-center gap-2"><Globe className="w-3 h-3"/>{proj.link}</p>
-                         </div>
-                      </div>
-                    </div>
+                    {/* =======================
+                        IMAGE PRINCIPALE AVEC ZOOM SHADCN
+                        ======================= */}
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <div className="relative rounded-[1rem] md:rounded-[1.5rem] lg:rounded-[2rem] overflow-hidden shadow-lg border border-slate-100 aspect-video mb-3 z-10 bg-slate-50 cursor-zoom-in group/image"> 
+                          <AnimatePresence mode="wait">
+                            <motion.img 
+                              key={selectedIndex}
+                              src={mainImage}
+                              alt={proj.title}
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              exit={{ opacity: 0 }}
+                              transition={{ duration: 0.3 }}
+                              className="w-full h-full object-cover object-center transform-gpu transition-transform duration-700 group-hover/image:scale-105"
+                            />
+                          </AnimatePresence>
 
+                          {/* Gradient sombre + URL (N'apparaît qu'au survol via opacity-0 group-hover/image:opacity-100) */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 flex items-end p-4 md:p-6 pointer-events-none">
+                             <div className="space-y-1">
+                               <p className="text-white font-bold text-xs md:text-sm flex items-center gap-2"><Globe className="w-3 h-3"/> mic-studio.fr/{proj.id}</p>
+                             </div>
+                          </div>
+
+                          {/* Icône de zoom au centre (N'apparaît qu'au survol) */}
+                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300 pointer-events-none">
+                             <div className="bg-black/50 backdrop-blur-sm p-3 md:p-4 rounded-full text-white shadow-lg">
+                                <Maximize2 className="w-5 h-5 md:w-6 md:h-6" />
+                             </div>
+                          </div>
+                        </div>
+                      </DialogTrigger>
+
+                      {/* Modale d'affichage en plein écran (Adaptée à la taille de l'image) */}
+{/* Modale d'affichage en plein écran */}
+                      {/* 1. w-auto h-auto max-w-none force le DialogContent à s'écraser autour de l'image */}
+                      <DialogContent 
+                        showCloseButton={false} 
+                        className="w-auto h-auto max-w-none max-h-none border-none bg-transparent shadow-none p-0"
+                      >
+                        <DialogTitle className="sr-only">Zoom sur {proj.title}</DialogTitle>
+                        
+                        {/* 2. Ce sont les max-w et max-h de l'IMAGE qui limitent la taille à l'écran */}
+                        <img
+                          src={mainImage}
+                          alt={proj.title}
+                          className="w-auto h-auto max-w-[95vw] md:max-w-[85vw] max-h-[95vh] md:max-h-[85vh] object-contain rounded-xl drop-shadow-2xl"
+                        />
+                      </DialogContent>
+                    </Dialog>
+
+                    {/* =======================
+                        MINIATURES (Aucun changement, changent juste l'image)
+                        ======================= */}
                     <div className="grid grid-cols-3 gap-2 md:gap-3">
-                      {/* CORRECTION : On map sur toutes les images, et on saute la sélectionnée */}
                       {allImages.map((img, imgIndexInAll) => {
-                        // Si c're l'image principale, on ne l'affiche pas dans les miniatures
                         if (imgIndexInAll === selectedIndex) return null;
                         
                         return (
                         <motion.div 
-                          // Clé 100% unique garantie !
                           key={`${proj.id}-thumb-${imgIndexInAll}`} 
                           onClick={() => setSelectedImages(prev => ({ ...prev, [proj.id]: imgIndexInAll }))}
                           className="relative rounded-lg md:rounded-xl overflow-hidden shadow-sm border-2 border-slate-100 aspect-video cursor-pointer transition-all duration-200 hover:border-member1/30"
                         >
                           <img 
-                            src={img} // CORRECTION : Retrait du [0]
+                            src={img}
                             alt={`${proj.title} - Vue alternative`}
                             className="w-full h-full object-cover"
                           />

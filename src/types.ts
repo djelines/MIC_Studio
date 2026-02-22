@@ -19,6 +19,7 @@ export interface Project {
   stack: string[];
   features: string[];
   link?: string;
+  imageHome: string;
 }
 
 export interface TimelineEvent {
