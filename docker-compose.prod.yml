@@ -46,3 +46,9 @@ services:
       retries: 3
       start_period: 10s
 
+    networks:
+      - global_network
+
+networks:
+  global_network:
+    external: true
