@@ -84,12 +84,16 @@ export const PROJECTS: Project[] = [
     title: 'MakeItCode (MIC)',
     summary: "Apprends le développement en t'amusant.",
     description: "Application Android gamifiée pour apprendre le code à travers des projets concrets et des mini-jeux interactifs, avec suivi de progression et récompenses motivantes.",
-    images: ['https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop'
+    images: [
+      { image: '/static/mic/mic_project.webp', type: "portrait" },
+      { image: '/static/mic/mic_user.webp', type: "portrait" },
+      { image: '/static/mic/mic_game.webp', type: "portrait" },
+      { image: '/static/mic/mic_ide.webp', type: "portrait" }
     ],
-    imageHome: "/static/mic/mic_home.webp",
+    imageHome: {
+      image: "/static/mic/mic_home.webp",
+      type: "portrait"
+    },
     stack: ['Dart', 'Flutter', 'Firebase', 'Rive'],
     features: [
       'Mini-jeux',
@@ -104,12 +108,16 @@ export const PROJECTS: Project[] = [
     title: 'Banque Republic',
     summary: 'Fintech moderne sécurisée.',
     description: "Application bancaire moderne offrant une gestion complète des comptes, des transactions et des bénéficiaires avec une interface intuitive et sécurisée.",
-    images: ['/static/banque/banque_home.webp',
-      '/static/banque/banque_account.webp',
-      '/static/banque/banque_stat.webp',
-      '/static/banque/banque_transaction.webp'
+    images: [
+      { image: '/static/banque/banque_dashboard.webp', type: "landscape" },
+      { image: '/static/banque/banque_account.webp', type: "landscape" },
+      { image: '/static/banque/banque_stat.webp', type: "landscape" },
+      { image: '/static/banque/banque_transaction.webp', type: "landscape" }
     ],
-    imageHome: '/static/banque/banque_home.png',
+    imageHome: {
+      image: '/static/banque/banque_home.png',
+      type: "landscape"
+    },
     stack: ['React', 'TailwindCSS', 'Vite', 'FastAPI'],
     features: [
       'Comptes',
@@ -125,12 +133,15 @@ export const PROJECTS: Project[] = [
     summary: 'Agrégateur de flux et plateforme de sondages.',
     description: "Plateforme SaaS pour centraliser l'information et gérer des sondages. Notifications, multi-organisations et résultats détaillés intégrés.",
     images: [
-      '/static/feedflow/feedflow_dashboard.png',
-      '/static/feedflow/feedflow_organization.png',
-      '/static/feedflow/feedflow_survey.png',
-      '/static/feedflow/feedflow_stat.png',
+      { image: '/static/feedflow/feedflow_dashboard.png', type: "landscape" },
+      { image: '/static/feedflow/feedflow_surveys.png', type: "landscape" },
+      { image: '/static/feedflow/feedflow_survey.png', type: "landscape" },
+      { image: '/static/feedflow/feedflow_stat.png', type: "landscape" }
     ],
-    imageHome: '/static/feedflow/feedflow_home.png',
+    imageHome: {
+      image: '/static/feedflow/feedflow_home.png',
+      type: "landscape"
+    },
     stack: ['Laravel', 'PHP', 'Docker', 'TailwindCSS'],
     features: [
       'Sondages',
