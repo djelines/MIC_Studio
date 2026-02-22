@@ -14,7 +14,7 @@ export const MEMBERS: Member[] = [
     name: 'Matéis',
     role: 'La boite à idées',
     color: '#746ac8',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop',
+    image: '/static/mateis_img.webp',
     github: 'https://github.com/BourletMateis',
     linkedin: 'https://www.linkedin.com/in/mateis-bourlet/',
     portfolio: '#'
@@ -24,7 +24,7 @@ export const MEMBERS: Member[] = [
     name: 'Mathys',
     role: 'Le styliste du front',
     color: '#49b4a7',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop',
+    image: '/static/mathys_img.webp',
     github: 'https://github.com/zinackes',
     linkedin: 'https://www.linkedin.com/in/mathys-sclafer-199726250/',
     portfolio: '#'
@@ -34,7 +34,7 @@ export const MEMBERS: Member[] = [
     name: 'Inès',
     role: 'La base de données',
     color: '#4992f1',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop',
+    image: '/static/ines_img.webp',
     github: 'https://github.com/djelines',
     linkedin: 'https://www.linkedin.com/in/in%C3%A8s-c-7067a5343/',
     portfolio: 'https://inescharfi.micdev.fr/'
@@ -44,7 +44,7 @@ export const MEMBERS: Member[] = [
     name: 'Clément',
     role: 'Le responsable bien‑être',
     color: '#233147',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2070&auto=format&fit=crop',
+    image: '/static/clement_img.webp',
     github: 'https://github.com/Cl3m3nt03',
     linkedin: 'https://www.linkedin.com/in/cl%C3%A9ment-seurin-le-goffic/',
     portfolio: '#'
@@ -115,7 +115,7 @@ export const PROJECTS: Project[] = [
       { image: '/static/banque/banque_transaction.webp', type: "landscape" }
     ],
     imageHome: {
-      image: '/static/banque/banque_home.png',
+      image: '/static/banque/banque_home.webp',
       type: "landscape"
     },
     stack: ['React', 'TailwindCSS', 'Vite', 'FastAPI'],
@@ -207,7 +207,7 @@ export const TIMELINE: ExtendedTimelineEvent[] = [
     color: '#746ac8',
     rotation: 0,
     icon: <Compass className="w-6 h-6" />,
-    image: '/static/avenir.jpeg'
+    image: '/static/avenir.webp'
   }
 ];
 
