@@ -25,9 +25,9 @@ services:
     # /var/cache/nginx, /var/run (PID) et /tmp uniquement
     read_only: true
     tmpfs:
-      - /var/cache/nginx:uid=101,gid=101
-      - /var/run:uid=101,gid=101
-      - /tmp:uid=101,gid=101
+      - /var/cache/nginx
+      - /var/run
+      - /tmp
 
     deploy:
       resources:
