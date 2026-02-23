@@ -57,12 +57,13 @@ export const TeamMember = ({ member, index }: { member: Member, index: number })
               <a href={member.linkedin} className="p-1.5 md:p-2 bg-slate-50 rounded-full hover:bg-member1 hover:text-white transition-all shadow-sm"><Linkedin className="w-3.5 h-3.5 md:w-4 md:h-4" /></a>
             </div>
             {/* Lien vers le portfolio */}
-            <a 
+
+            {member.portfolio !== '#' &&  <a 
               href={member.portfolio} 
               className="flex items-center gap-1.5 text-[9px] md:text-[11px] font-black uppercase tracking-widest text-member1 hover:gap-2 transition-all"
             >
               Portfolio <ExternalLink className="w-2.5 h-2.5 md:w-3 md:h-3" />
-            </a>
+            </a>}
           </div>
         </div>
       </motion.div>
